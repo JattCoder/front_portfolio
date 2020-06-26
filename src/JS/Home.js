@@ -13,8 +13,8 @@ let Home = ({next,quote}) => {
       <div>
         <div style={{marginTop:'10%',flex:1,justifyContent: "center",alignItems: "center",height:300}}>
           <div className='header'>
-            <h1 id='welCome' className='welcome'>Welcome Tooooo</h1>
-            <h1 className='portfolio'>Harmandeep Mand's Portfoliooooo</h1>
+            <h1 id='welCome' className='welcome'>Welcome To</h1>
+            <h1 className='portfolio'>Harmandeep Mand's Portfolio</h1>
           </div>
           <h1 className='showquote'>{quote.quote}</h1>
         </div>
