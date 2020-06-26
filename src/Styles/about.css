@@ -1,0 +1,17 @@
+.about_head{
+    font-size: 40px;
+}
+
+.about_body{
+    font-size: 20px;
+}
+
+.popup{
+    width: 40px;
+    height: 46px;
+    margin: 10px;
+    left:50%;
+    margin-bottom: 240px;
+    pointer-events: none;
+    z-index: -3;
+}

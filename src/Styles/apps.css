@@ -1,0 +1,82 @@
+.card{
+    text-align: center;
+    padding-top: 10px;
+    opacity: 1;
+    width: 500px;
+    height: 350px;
+    margin: 30px;
+    background-color: burlywood;
+}
+
+.card-title{
+    color: black;
+    display: block;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 18px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 15px;
+}
+
+.container{
+    text-align: center;
+    width: 100px;
+    margin-top: 150px;
+}
+
+.img{
+    display: block;
+    margin-left: 40px;
+    margin-right: 10px;
+}
+
+.slick-prev:before, .slick-next:before {
+    color: black !important;
+}
+
+.slick-dots li.slick-active button:before {
+    color:black !important;
+}
+
+.slick-slide {
+    outline: none
+}
+
+.follow {
+    background-color: #3897f0 !important;
+    border: 1px solid #3897f0 !important;
+    border-radius: 4px;
+    color: black;
+    width: 90px;
+    margin-top: 20px !important;
+    margin: 15px;
+}
+
+.row{
+    display: flex;
+}
+
+.info{
+    font-size: 10px;
+}
+
+.heading{
+    color: black;
+}
+
+.btn_live{
+    color: tomato;
+    background-color: transparent;
+    border: transparent;
+    font-size: 17px;
+    margin-left: 10px;
+}
+
+.btn_live:hover{
+    color: red;
+}
+
+.btn_live:focus{
+    outline: none;
+}

@@ -1,0 +1,74 @@
+.heart:hover {
+    cursor: pointer;
+}
+
+.heart {
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    animation: crescendo 0.8s alternate infinite ease-in
+}
+
+.element {
+    height: 250px;
+    width: 250px;
+    margin: 0 auto;
+    background-color: red;
+    animation-name: stretch;
+    animation-duration: 1.5s; 
+    animation-timing-function: ease-out; 
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-fill-mode: none;
+    animation-play-state: running;
+  }
+
+  @keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+  
+  @keyframes stretch {
+    0% {
+      transform: scale(.3);
+      background-color: red;
+      border-radius: 100%;
+    }
+    50% {
+      background-color: orange;
+    }
+    100% {
+      transform: scale(1.5);
+      background-color: yellow;
+    }
+  }
+  
+@keyframes crescendo {
+    0%   {transform: scale(0.9);}
+    100% {transform: scale(1.1);}
+}
+@keyframes heartin {
+    0%   {transform: scale(0.3);}
+    100% {transform: scale(0.9);}
+}
+@keyframes heartout {
+    0%   {transform: scale();}
+    100% {transform: scale(0.3);}
+}
+@keyframes btnin {
+    from {background-color: transparent}
+    to {background-color: red}
+  }
+
+  @keyframes btnout {
+    from {
+        background-color: red;}
+    to {background-color: transparent}
+  }
