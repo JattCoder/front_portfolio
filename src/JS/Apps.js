@@ -32,8 +32,6 @@ export default class Apps extends Component {
         breakpoint: 480,
         settings: {
           slidesPerRow: 1,
-          slidesToShow: 1,
-          slidesToScroll: 1
         }
     }]
   };
