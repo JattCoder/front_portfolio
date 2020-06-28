@@ -40,7 +40,7 @@ export default class Apps extends Component {
 
   getapps = async () => {
     let info = [];
-    const req = await fetch('http://localhost:2021/apps');
+    const req = await fetch('https://harmandeep-mand-portfolio.herokuapp.com/apps');
     if(req.ok){
       info = await req.json();
       this.setState({
@@ -60,7 +60,7 @@ export default class Apps extends Component {
         <div height={'100%'}>
           <div className="container">
           {this.state.apps.length === 0 ? (
-            <div className='spinner-border' role='status'>
+            <div className='spinner-border' role='status' style={{marginTop: 100}}>
               <span className='sr-only' >Loading...</span>
             </div>
           ):(
