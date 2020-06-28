@@ -24,7 +24,7 @@ class About extends Component {
 
   getabout = async () => {
     let info = []
-    const req = await fetch('http://localhost:2021/about')
+    const req = await fetch('https://harmandeep-mand-portfolio.herokuapp.com/about')
     if(req.ok){
       info = await req.json();
       this.setState({
