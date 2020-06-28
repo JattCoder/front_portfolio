@@ -68,19 +68,19 @@ export default class Apps extends Component {
             {this.state.apps.length > 0 && this.state.apps.map((current,index)=>(
             <div className='out' key={current.id}>
               <div className='card'>
-                <h5 className='card-title'>{current.name}</h5>
                 <div className='row'>
                   <div className='img'><SimpleImageSlider
-                    width={310}
+                    width={250}
                     height={160}
                     images={this.state.imgs[index]}
                     showBullets={false}
                   /></div>
-                  <div className='info'>
+                </div>
+                <h5 className='card-title'>{current.name}</h5>
+                <div className='info'>
                     {current.description}
                   </div>
-                </div>
-                <div className='card-body'>
+                <div className='card_btns'>
                   <small className='card-text text-sm-center text-muted'></small>
                   <br/>
                   <button className='btn btn-sm follor btn-primary' onClick={()=>{window.open(current.source)}}>Source</button>
