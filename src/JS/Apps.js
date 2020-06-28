@@ -26,7 +26,7 @@ export default class Apps extends Component {
     rows:1,
     autoplay: true,
     autoplaySpeed: 3000,
-    slidesPerRow: 1,
+    slidesPerRow: 4,
     variableWidth: true,
     responsive: [{
         breakpoint: 480,
