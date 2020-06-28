@@ -60,7 +60,7 @@ export default class Apps extends Component {
         <div height={'100%'}>
           <div className="container">
           {this.state.apps.length === 0 ? (
-            <div className='spinner-border' role='status' style={{marginTop: 100}}>
+            <div className='spinner-border' role='status'>
               <span className='sr-only' >Loading...</span>
             </div>
           ):(
