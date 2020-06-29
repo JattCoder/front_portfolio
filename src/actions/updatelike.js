@@ -3,7 +3,7 @@ export const UPDATE_LIKES = 'UPDATE_LIKES';
 export const updatelike = () => {
     return async (dispatch) =>{
         let data = {likes: 1}
-        return await fetch('https://harmandeep-mand-portfolio.herokuapp.com/',{
+        return await fetch('https://harmandeep-mand-portfolio.herokuapp.com/home',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
