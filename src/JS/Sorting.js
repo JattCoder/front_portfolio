@@ -62,7 +62,7 @@ export default class Sorting extends Component {
             </div>
           </div>
         </div>
-        <div id='before' style={{height: '400px', textAlign: 'center', width: '80%'}}>
+        <div className='before'>
           <div className='drawlayout' id="drawlayout"></div>
         </div>
       </div>

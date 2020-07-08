@@ -139,12 +139,13 @@
         height: 70px;
         width: 70px;
         margin-left: -11px;
+        margin-top: 30px;
     }
     .navStyle{
         margin: 7px;
     }
     .list{
-        margin-top: 170px;
+        margin-top: 150px;
         margin-left: -440px;
     }
 }
