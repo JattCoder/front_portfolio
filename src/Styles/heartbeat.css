@@ -10,6 +10,20 @@
     animation: crescendo 0.8s alternate infinite ease-in
 }
 
+.like_btn{
+  align-items: center;
+  color: white;
+  top: 0;
+  margin-top: 40px;
+  position: fixed;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  background-color: transparent;
+  outline: none;
+  z-index: 10px;
+}
+
 .element {
     height: 250px;
     width: 250px;
@@ -65,10 +79,71 @@
 @keyframes btnin {
     from {background-color: transparent}
     to {background-color: red}
-  }
+}
 
-  @keyframes btnout {
+@keyframes btnout {
     from {
         background-color: red;}
     to {background-color: transparent}
+}
+
+@media screen and (max-width:1024px){
+  .like_btn{
+    margin-Left: -20px;
+    height: 65px;
+    width: 65px;
   }
+  .heart {
+    margin-top: 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    animation: crescendo 0.8s alternate infinite ease-in
+  }
+}
+
+@media screen and (max-width:768px){
+  .like_btn{
+    margin-top: 55px;
+    margin-Left: -20px;
+    height: 65px;
+    width: 65px;
+  }
+  .heart {
+    margin-top: 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    animation: crescendo 0.8s alternate infinite ease-in
+  }
+}
+
+@media screen and (max-width:411px){
+  .like_btn{
+    margin-Left: -10px;
+    height: 50px;
+    width: 50px;
+  }
+  .heart {
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    animation: crescendo 0.8s alternate infinite ease-in
+  }
+}
+
+@media screen and (max-width:400px){
+  .like_btn{
+    margin-Left: -20px;
+    height: 45px;
+    width: 45px;
+  }
+  .heart {
+    margin-top: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    animation: crescendo 0.8s alternate infinite ease-in
+  }
+}

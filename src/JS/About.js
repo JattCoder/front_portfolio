@@ -37,7 +37,7 @@ class About extends Component {
   render(){
     return(
       <div>
-        <div style={{marginTop:300,justifyContent:'center'}}>
+        <div className='aboutMe'>
           <Abinfo name={this.state.name} description={this.state.description}/>
         </div>
         <nav style={{bottom:0,position:'fixed',width:'100%',display:"flex",justifyContent: "center",alignItems: "center",maxHeight:"10vh" ,minHeight: "10vh", color: "black"}}>

@@ -31,11 +31,12 @@ export default class Apps extends Component {
     slidesToScroll: 1,
     variableWidth: true,
     responsive: [{
-        breakpoint: 480,
+        breakpoint: 1030,
         settings: {
           slidesPerRow: 1,
           slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToScroll: 1,
+          arrows: false
         }
     }]
   };

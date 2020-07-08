@@ -3,6 +3,13 @@
     src: local('Audiowide'), url(../Font_Style/Audiowide.ttf) format('ttf');
 }
 
+.list{
+    width: 22%;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
 .navStyle {
     position: relative;
     padding: 10px 0 5px;
@@ -39,3 +46,73 @@
     -webkit-transform: translateX(-50%) scaleX(1);
     transform: translateX(-50%) scaleX(1);
 }
+
+.logo{
+    height: 80px;
+    width: 80px;
+    margin: 10px;
+}
+
+.bottom_nav{
+    z-index: 10px;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 10vh;
+    min-height: 10vh;
+    color: black
+}
+
+@media (max-width:1024px){
+
+    .list{
+        margin-left: 150px;
+    }
+    
+}
+  
+@media screen and (max-width:768px){
+    .logo{
+        height: 100px;
+        width: 100px;
+        margin-left: -60px;
+        margin-top: 40px;
+    }
+    .navStyle{
+        margin: 7px;
+    }
+}
+
+@media screen and (max-width:414px){
+    .logo{
+        height: 70px;
+        width: 70px;
+        margin-left: -50px;
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width:411px){
+    .logo{
+        height: 70px;
+        width: 70px;
+        margin-left: -50px;
+        margin-top: 30px;
+    }
+}
+  
+  @media screen and (max-width:360px){
+    .logo{
+        height: 60px;
+        width: 60px;
+        margin-left: -40px;
+        margin-top: 30px;
+    }
+    .list{
+        margin-left: 180px;
+        margin-top: 55px;
+    }
+  }

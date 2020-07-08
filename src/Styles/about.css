@@ -3,7 +3,16 @@
 }
 
 .about_body{
-    font-size: 20px;
+    width: 100%;
+    padding-left: 250px;
+    padding-right: 250px;
+    padding-top: 10px;
+    padding-bottom: 250px;
+}
+
+.aboutMe{
+    margin-top: 300px;
+    justify-content: center;
 }
 
 .popup{
@@ -14,4 +23,124 @@
     margin-bottom: 240px;
     pointer-events: none;
     z-index: -3;
+}
+
+@media screen and (max-width:1024px){
+    .aboutMe{
+        margin-top: 300px;
+    }
+    .about_head{
+        font-size: 50px;
+    }
+    .about_body{
+        font-size: 20px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .popup{
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+        margin-bottom: 240px;
+    }
+}
+
+@media screen and (max-width:768px){
+    .aboutMe{
+        margin-top: 300px;
+    }
+    .about_head{
+        font-size: 50px;
+    }
+    .about_body{
+        font-size: 20px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .popup{
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+        margin-bottom: 240px;
+    }
+}
+
+@media screen and (max-width:414px){
+    .aboutMe{
+        margin-top: 250px;
+    }
+    .about_head{
+        font-size: 20px;
+    }
+    .about_body{
+        font-size: 15px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .popup{
+        width: 20px;
+        height: 20px;
+        margin: 2px;
+        margin-bottom: 240px;
+    }
+}
+
+@media screen and (max-width:411px){
+    .aboutMe{
+        margin-top: 250px;
+    }
+    .about_head{
+        font-size: 20px;
+    }
+    .about_body{
+        font-size: 15px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .popup{
+        width: 20px;
+        height: 20px;
+        margin: 3px;
+        margin-bottom: 240px;
+    }
+}
+
+@media screen and (max-width:360px){
+    .aboutMe{
+        margin-top: 170px;
+    }
+    .about_head{
+        font-size: 20px;
+    }
+    .about_body{
+        font-size: 15px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .popup{
+        width: 20px;
+        height: 20px;
+        margin: 3px;
+        margin-bottom: 240px;
+    }
+}
+
+@media screen and (max-width:320px){
+    .aboutMe{
+        margin-top: 150px;
+    }
+    .about_head{
+        font-size: 20px;
+    }
+    .about_body{
+        font-size: 15px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .popup{
+        width: 20px;
+        height: 20px;
+        margin: 2px;
+        margin-bottom: 240px;
+    }
 }

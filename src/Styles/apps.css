@@ -83,3 +83,39 @@
 .btn_live:focus{
     outline: none;
 }
+
+@media screen and (max-width:1024px){
+    .container{
+        margin-top: 500px;
+    }
+}
+
+@media screen and (max-width:768px){
+    .container{
+        margin-top: 350px;
+    }
+}
+
+@media screen and (max-width:414px){
+    .container{
+        margin-top: 190px;
+    }
+}
+
+@media screen and (max-width:375px){
+    .container{
+        margin-top: 200px;
+    }
+}
+
+@media screen and (max-width:360px){
+    .container{
+        margin-top: 140px;
+    }
+}
+
+@media screen and (max-width:320px){
+    .container{
+        margin-top: 100px;
+    }
+}

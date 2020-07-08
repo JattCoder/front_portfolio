@@ -1,0 +1,92 @@
+.reviewBox{
+    margin-top: 200px;
+}
+
+.message{
+    padding: 10px;
+    border-radius: 1%;
+    height: 300px;
+    width: 700px;
+    color: white;
+    background-color: transparent;
+    resize: none;
+}
+
+.thankYou{
+    margin-top: 300px;
+    color: white;
+}
+
+@media screen and (max-width:1024px){
+    .message{
+        margin-top: 300px;
+    }
+    .thankYou{
+        margin-top: 600px;
+    }
+}
+
+@media screen and (max-width:768px){
+    .message{
+        margin-top: 200px;
+    }
+    .thankYou{
+        margin-top: 500px;
+    }
+}
+
+@media screen and (max-width:414px){
+    .message{
+        height: 400px;
+        width: 300px;
+        margin-top: -20px;
+    }
+    .thankYou{
+        margin-top: 350px;
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width:411px){
+    .message{
+        height: 450px;
+        width: 350px;
+        margin-top: -40px;
+    }
+}
+
+@media screen and (max-width:375px){
+    .message{
+        height: 400px;
+        width: 300px;
+        margin-top: 0px;
+    }
+    .thankYou{
+        margin-top: 330px;
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width:360px){
+    .message{
+        height: 370px;
+        width: 350px;
+        margin-top: -60px;
+    }
+    .thankYou{
+        margin-top: 270px;
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width:320px){
+    .message{
+        height: 300px;
+        width: 300px;
+        margin-top: -60px;
+    }
+    .thankYou{
+        margin-top: 250px;
+        font-size: 30px;
+    }
+}

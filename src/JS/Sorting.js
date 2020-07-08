@@ -42,16 +42,16 @@ export default class Sorting extends Component {
   render() {
     return (
       <div>
-        <div style={{width:'100%', alignItems:'center', textAlign:'center', height:'auto'}}>
-          <div style={{marginLeft:'35%',marginTop:'10%', display: 'flex'}}>
-            <div style={{margin: '10px',display:'flex'}}>
+        <div>
+          <div className='sort-page'>
+            <div className='rangebar'>
               <input type="range" id="range" onChange={this.handleChange} min='7' max='20'></input>
             </div>
-            <div style={{margin: '10px', display: 'flex'}}>
+            <div style={{display: 'flex'}}>
               <form onSubmit={this.handleSubmit}>
                 <label>
                   Sorting Type
-                  <select id='select' className='btn dropdown-toggle' style={{margin:5,backgroundColor:'transparent'}} value={this.state.value} onChange={this.handleChange}>
+                  <select id='select' className='dropdown' value={this.state.value} onChange={this.handleChange}>
                     <option value="Bubble Sort">Bubble Sort</option>
                     <option value="Selection Sort">Selection Sort</option>
                     <option value="Color Sort">Color Sort</option>
@@ -62,8 +62,8 @@ export default class Sorting extends Component {
             </div>
           </div>
         </div>
-        <div id='before' style={{height: '400px', textAlign: 'center'}}>
-          <div id="drawlayout" style={{bottom: 1, justifyContent: 'center', display: 'flex'}}></div>
+        <div id='before' style={{height: '400px', textAlign: 'center', width: '80%'}}>
+          <div className='drawlayout' id="drawlayout"></div>
         </div>
       </div>
     );

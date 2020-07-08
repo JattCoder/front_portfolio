@@ -18,7 +18,7 @@ const Like = (props) => {
     return (
         <div>
             <div style={{width:'100%',background:'white'}}>
-                <button id='like_btn' style={btnstylie}>
+                <button className='like_btn' id='like_btn'>
                     <img id='beat' className='heart' alt={props.like} src={require('../Images/like.webp')} onClick={()=>{run(dispatch)}}/>
                     <h1 id='showlikez' style={{marginTop:'5px' ,display: 'none', fontSize: '14px'}}>{result}</h1>
                 </button>
@@ -54,17 +54,3 @@ let run = (dispatch) => {
 }
 
 export default Like
-
-const btnstylie = {
-    alignItems: 'center',
-    color: 'white',
-    top:0,
-    marginTop:40,
-    position:'fixed',
-    borderRadius: '50%',
-    height: 50,
-    width: 50,
-    backgroundColor: 'transparent',
-    outline: 'none',
-    zIndex: 10
-}
