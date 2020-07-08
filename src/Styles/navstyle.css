@@ -84,35 +84,84 @@
     .navStyle{
         margin: 7px;
     }
+    .list{
+        margin-top: 25px;
+    }
 }
 
 @media screen and (max-width:414px){
     .logo{
         height: 70px;
         width: 70px;
-        margin-left: -50px;
-        margin-top: 30px;
+        margin-left: -11px;
+    }
+    .navStyle{
+        margin: 7px;
+    }
+    .list{
+        margin-top: 170px;
+        margin-left: -480px;
+    }
+}
+
+@media screen and (max-width:414px){
+    .logo{
+        height: 70px;
+        width: 70px;
+        margin-left: -11px;
+    }
+    .navStyle{
+        margin: 7px;
+    }
+    .list{
+        margin-top: 170px;
+        margin-left: -480px;
     }
 }
 
 @media screen and (max-width:411px){
     .logo{
-        height: 70px;
-        width: 70px;
-        margin-left: -50px;
-        margin-top: 30px;
+        height: 80px;
+        width: 80px;
+        margin-left: -20px;
     }
-}
-  
-  @media screen and (max-width:360px){
-    .logo{
-        height: 60px;
-        width: 60px;
-        margin-left: -40px;
-        margin-top: 30px;
+    .navStyle{
+        margin: 7px;
     }
     .list{
-        margin-left: 180px;
-        margin-top: 55px;
+        margin-top: 200px;
+        margin-left: -500px;
     }
-  }
+}
+
+@media screen and (max-width:375px){
+    .logo{
+        height: 70px;
+        width: 70px;
+        margin-left: -11px;
+    }
+    .navStyle{
+        margin: 7px;
+    }
+    .list{
+        margin-top: 170px;
+        margin-left: -440px;
+    }
+}
+
+@media screen and (max-width:320px){
+    .logo{
+        height: 70px;
+        width: 70px;
+        margin-left: -30px;
+        margin-top: 10px;
+    }
+    .navStyle{
+        margin: 4px;
+        font-size: 10px;
+    }
+    .list{
+        margin-top: 140px;
+        margin-right: -10px;
+    }
+}
