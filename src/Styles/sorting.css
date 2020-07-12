@@ -33,6 +33,39 @@ label{
     width: 80%;
 }
 
+@media screen and (max-width:2048px){
+    .sort-page{
+        margin-top: 200px;
+        justify-content: center;
+    }
+    .drawlayout{
+        margin-left: 400px;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width:3840px){
+    .sort-page{
+        margin-top: 600px;
+        justify-content: center;
+    }
+    .drawlayout{
+        margin-left: 800px;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width:1920px){
+    .sort-page{
+        margin-top: 200px;
+        justify-content: center;
+    }
+    .drawlayout{
+        margin-left: 400px;
+        margin-top: 20px;
+    }
+}
+
 @media screen and (max-width:1024px){
     .sort-page{
         margin-top: 400px;

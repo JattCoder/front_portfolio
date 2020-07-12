@@ -7,6 +7,7 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    z-index: 11px;
     animation: crescendo 0.8s alternate infinite ease-in
 }
 
@@ -21,7 +22,7 @@
   width: 50px;
   background-color: transparent;
   outline: none;
-  z-index: 10px;
+  z-index: 5px;
 }
 
 .element {
