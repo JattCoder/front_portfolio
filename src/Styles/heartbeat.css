@@ -7,8 +7,12 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    z-index: 11px;
+    z-index: 20px;
     animation: crescendo 0.8s alternate infinite ease-in
+}
+
+.like_btn:focus{
+  outline: none;
 }
 
 .like_btn{
@@ -22,7 +26,7 @@
   width: 50px;
   background-color: transparent;
   outline: none;
-  z-index: 5px;
+  z-index: -5px;
 }
 
 .element {
@@ -86,6 +90,12 @@
     from {
         background-color: red;}
     to {background-color: transparent}
+}
+
+@media screen and (max-height:414px){
+  .like_btn{
+    display: none;
+  }
 }
 
 @media screen and (max-width:414px){

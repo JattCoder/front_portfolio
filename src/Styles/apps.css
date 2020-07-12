@@ -84,9 +84,21 @@
     outline: none;
 }
 
+@media screen and (max-height:1024px){
+    .container{
+        margin-top: 300px;
+    }
+}
+
 @media screen and (max-width:1024px){
     .container{
         margin-top: 500px;
+    }
+}
+
+@media screen and (max-height:768px){
+    .container{
+        margin-top: 200px;
     }
 }
 
@@ -96,9 +108,21 @@
     }
 }
 
+@media screen and (max-height:414px){
+    .container{
+        margin-top: 10px;
+    }
+}
+
 @media screen and (max-width:414px){
     .container{
         margin-top: 190px;
+    }
+}
+
+@media screen and (max-height:411px){
+    .container{
+        margin-top: 5px;
     }
 }
 
@@ -108,9 +132,25 @@
     }
 }
 
+@media screen and (max-height:375px){
+    .container{
+        margin-top: 1px;
+    }
+    .card{
+        height: 315px;
+    }
+}
+
 @media screen and (max-width:375px){
     .container{
         margin-top: 200px;
+    }
+}
+
+@media screen and (max-height:360px){
+    .container{
+        margin-top: -10px;
+
     }
 }
 

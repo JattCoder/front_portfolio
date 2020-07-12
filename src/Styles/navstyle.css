@@ -19,6 +19,7 @@
     text-transform: uppercase;
     font-family: 'Audiowide';
     font-size: 13px;
+    z-index: -5px;
 }
 
 .navStyle:hover {
@@ -66,30 +67,78 @@
     color: black
 }
 
+@media (max-height:1024px){
+
+    .logo{
+        height: 80px;
+        width: 80px;
+        margin-left: -20px;
+        margin-top: 40px;
+    }
+
+    .list{
+        margin-left: 150px;
+        margin-top: 15px;
+    }
+    
+}
+
 @media (max-width:1024px){
 
     .list{
         margin-left: 150px;
+        margin-top: 10px;
     }
     
 }
   
 @media screen and (max-width:768px){
     .logo{
-        height: 100px;
-        width: 100px;
-        margin-left: -60px;
+        height: 80px;
+        width: 80px;
+        margin-left: -20px;
         margin-top: 40px;
     }
     .navStyle{
         margin: 7px;
     }
     .list{
-        margin-top: 25px;
+        margin-top: 15px;
     }
 }
 
-@media screen and (max-width:414px){
+@media screen and (max-height:780px){
+    .logo{
+        height: 80px;
+        width: 80px;
+        margin-left: 20px;
+        margin-top: 40px;
+    }
+    .navStyle{
+        margin: 7px;
+    }
+    .list{
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-height:414px){
+    .logo{
+        display: none;
+    }
+    .navStyle{
+        display: none;
+    }
+    .bottom_nav{
+        display: none;
+    }
+    .list{
+        margin-top: 170px;
+        margin-left: -480px;
+    }
+}
+
+@media screen and (max-width:411px){
     .logo{
         height: 70px;
         width: 70px;

@@ -31,6 +31,20 @@
     }
 }
 
+@media screen and (max-height:1024px){
+    .welcome{
+        margin-top: 250px;
+        font-size: 150px;
+    }
+    .portfolio{
+        font-size: 45px;
+    }
+    .showquote{
+        padding: 10px;
+        font-size: 30px;
+    }
+}
+
 @media screen and (max-width:1024px){
     .welcome{
         margin-top: 400px;
@@ -42,6 +56,20 @@
     .showquote{
         padding: 10px;
         font-size: 30px;
+    }
+}
+
+@media screen and (max-height:768px){
+    .welcome{
+        margin-top: 200px;
+        font-size: 120px;
+    }
+    .portfolio{
+        font-size: 40px;
+    }
+    .showquote{
+        padding: 10px;
+        font-size: 25px;
     }
 }
 
@@ -59,9 +87,39 @@
     }
 }
 
+@media screen and (max-height:414px){
+    .welcome{
+        margin-top: 50px;
+        font-size: 60px;
+    }
+    .portfolio{
+        margin: 5px;
+        font-size: 20px;
+    }
+    .showquote{
+        padding: 10px;
+        font-size: 15px;
+    }
+}
+
 @media screen and (max-width:414px){
     .welcome{
         margin-top: 200px;
+        font-size: 60px;
+    }
+    .portfolio{
+        margin: 5px;
+        font-size: 20px;
+    }
+    .showquote{
+        padding: 10px;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-height:411px){
+    .welcome{
+        margin-top: 10px;
         font-size: 60px;
     }
     .portfolio{
@@ -89,6 +147,24 @@
     }
 }
 
+@media screen and (max-height:375px){
+    .welcome{
+        margin-top: 50px;
+        font-size: 60px;
+        margin-right: 10px;
+    }
+    .portfolio{
+        margin: 5px;
+        font-size: 20px;
+        margin-top: -15px;
+    }
+    .showquote{
+        margin-top: 80px;
+        padding: 10px;
+        font-size: 15px;
+    }
+}
+
 @media screen and (max-width:360px){
     .welcome{
         margin-top: 180px;
@@ -101,6 +177,24 @@
         margin-top: -15px;
     }
     .showquote{
+        padding: 10px;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-height:320px){
+    .welcome{
+        margin-top: 50px;
+        font-size: 50px;
+        margin-right: -1px;
+    }
+    .portfolio{
+        margin: 5px;
+        font-size: 17px;
+        margin: -15px;
+    }
+    .showquote{
+        margin-top: 100px;
         padding: 10px;
         font-size: 15px;
     }
