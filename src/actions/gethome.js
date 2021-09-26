@@ -8,7 +8,6 @@ export const gethome = () => {
                 response => response.json(),
                 error => console.log(error),
             ).then((json)=> {
-                console.log('sending data of home')
                 console.log(json);
                 dispatch({type: GET_HOME, payload: json})
             })
