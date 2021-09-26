@@ -2,20 +2,21 @@ export const UPDATE_LIKES = 'UPDATE_LIKES';
 
 export const updatelike = () => {
     return async (dispatch) =>{
-        let data = {likes: 1}
-        return await fetch('https://harmandeep-mand-portfolio.herokuapp.com/home',{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        }).then(
-            response => response.json(),
-            error => console.log(error),
-        ).then((json)=> {
-            console.log('got data after adding like')
-            console.log(json);
-            dispatch({type: UPDATE_LIKES, payload: json})
-        })
+        try {
+            let data = {likes: 1}
+            return await fetch('https://harmandeep-mand-portfolio.herokuapp.com/home',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }).then(
+                response => response.json()
+            ).then((json)=> {
+                dispatch({type: UPDATE_LIKES, payload: json})
+            })
+        } catch(err) {
+            throw new Error(err);
+        } 
     }
 }
