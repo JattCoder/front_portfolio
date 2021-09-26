@@ -1,0 +1,1 @@
+export const getAllSchool = state => state.schools;
