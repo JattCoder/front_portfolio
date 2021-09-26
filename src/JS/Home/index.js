@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
-import { getquote } from '../../actions/getquote'
-import { getNewQuote } from '../../Helper/quote'; 
+import { useDispatch, useSelector } from 'react-redux';
+import { getquote } from '../../actions/getquote';
+import { getNewQuote } from '../../Helper/quote';
+import { } from './styles';
 
 const Home = () => {
 
