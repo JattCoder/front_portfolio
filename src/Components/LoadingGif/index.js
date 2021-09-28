@@ -117,17 +117,13 @@ const LoadingGif = () => {
     }
 
     const success = () => {
-        //make the color red, then hide welcome to display home page
+        setTimeout(() => {
+            hideIntro();
+        },1000)
+        setWColor('red');
     }
 
-    const hideWelcome = (resp) => {
-        setTimeout(() => {
-            if (!resp){
-                success();
-            } else {
-                setTryAgainOpacity(1)
-            }
-        },1000)
+    const hideIntro = () => {
         setW(2);
         setE(2);
         setL(2);
@@ -135,6 +131,17 @@ const LoadingGif = () => {
         setO(2);
         setM(2);
         setE2(2);
+    }
+
+    const hideWelcome = (resp) => {
+        setTimeout(() => {
+            if (resp){
+                success();
+            } else {
+                setTryAgainOpacity(1)
+            }
+        },1000)
+        if (!resp) hideIntro();
     }
 
     const fetchData = async () => {
