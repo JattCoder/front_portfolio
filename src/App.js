@@ -1,27 +1,26 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Nav from './JS/Nav';
-import Home from './JS/Home';
-import Sorting from './JS/Sorting'
-import About from './JS/About'
-import Apps from './JS/Apps'
-import Review from './JS/Review'
+import { useDispatch, useSelector } from 'react-redux';
+import Home from './JS/Home/';
+import LoadingGif from './Components/LoadingGif';
+import { isDataLoaded } from './Helper/confirmation';
 
-function App() {
-  return (
-    <Router>
-        <div style={{justifyContent: 'center',textAlign:'center'}}>
-          <Nav/>
-          <Switch>
-            <Route exact={true} path='/' component={Home}/>
-            <Route exact={true} path='/sorting' component={Sorting}/>
-            <Route exact={true} path='/apps' component={Apps}/>
-            <Route exact={true} path='/about' component={About}/>
-            <Route exact={true} path='/review' component={Review}/>
-          </Switch>
-        </div>
-    </Router>
+const App = () => {
+
+  const loaded = useSelector((state) => isDataLoaded(state));
+
+  const displayHome = (
+    <Home />
   );
+
+  const displayLoading = (
+    <LoadingGif />
+  );
+
+  return (
+    <div style={{height:'100vh',backgroundColor:'black', justifyContent:'center', alignItems: 'center', display:'flex'}}>
+      {loaded ? displayHome : displayLoading}
+    </div>
+  )
 }
 
 export default App;
