@@ -2,12 +2,22 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getquote } from '../../actions/getquote';
 import { getNewQuote } from '../../Helper/quote';
-import { } from './styles';
+import Bio from '../../Components/Bio';
 
 const Home = () => {
 
   const newQuote = useSelector(state => getNewQuote(state));
   const dispatch = useDispatch();
+
+  const styles = {
+    body: {
+      height: '100%',
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'center',
+      alignitems: 'center',
+    }
+  }
 
   const getQuote = async () => {
     try{
@@ -25,12 +35,12 @@ const Home = () => {
   }
 
   useEffect(()=>{
-    //getQuote();
+    console.log('Home is loading');
   },[])
 
     return(
-      <div>
-        <h1>{newQuote.quote}</h1>
+      <div style={styles.body}>
+        <Bio />
       </div>
     );
 }
