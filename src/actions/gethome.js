@@ -8,9 +8,7 @@ export const gethome = () => {
                 response => response.json(),
                 error => console.log(error),
             ).then((json)=> {
-                //Distribute the data to store in proper manner
-                console.warn('Receiving Data: ',json)
-                //dispatch({type: GET_HOME, payload: json})
+                dispatch({type: GET_HOME, payload: json})
             })
         } catch (err) {
             throw new Error(err);

@@ -1,3 +1,3 @@
-export const getProfileName = state => state.profile.name;
-export const getProfileShortDescription = state => state.profile.shortDesc;
-export const getProfileImage = state => state.profile.image;
+export const getProfileName = state => state.gethome.about.name;
+export const getProfileDesc = state => state.gethome.about.description;
+export const getProfileImage = state => state.gethome.about.pic;
