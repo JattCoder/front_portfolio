@@ -1,24 +1,36 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { getProfileName } from '../../Helper/userInfo';
+import React, { useEffect, useState } from 'react';
+import MyPic from '../myPic/me.png';
 
 const Bio = (props) => {
 
-    const data = useSelector( state => getProfileName(state));
+    const [picOpacity, setPicOpacity] = useState(0);
     
-
     const styles = {
         frame: {
-            width: '60%',
-            height: '100%',
             position: 'absolute',
-            right: 0
+            right: '10%',
+            opacity: picOpacity,
+            transition: "all 0.7s ease",
+            WebkitTransition: "all 0.7s ease",
+            MozTransition: "all 0.7s ease",
+        },
+        pic: {
+            height: 530,
+            width: 400,
         }
     }
 
+    const animatePic = () => {
+        setPicOpacity(1);
+    }
+
+    useEffect(() => {
+        animatePic();
+    },[])
+
     return(
-        <div>
-            <text style={{color:'white'}}>Bio</text>
+        <div style={styles.frame}>
+            <img src={MyPic} style={styles.pic} alt={'Can not display'} />
         </div>
     )
 }
