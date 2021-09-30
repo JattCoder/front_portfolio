@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getquote } from '../../actions/getquote';
 import { getNewQuote } from '../../Helper/quote';
 import Bio from '../../Components/Bio';
+import BottomArrows from '../../Components/BottomArrows';
 
 const Home = () => {
 
@@ -41,6 +42,7 @@ const Home = () => {
     return(
       <div style={styles.body}>
         <Bio />
+        <BottomArrows />
       </div>
     );
 }
