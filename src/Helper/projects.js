@@ -1,1 +1,1 @@
-export const getAllProjects = state => state.projects;
+export const getAllProjects = state => state.gethome.apps;

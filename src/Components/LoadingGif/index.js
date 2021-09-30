@@ -4,7 +4,7 @@ import { gethome } from '../../actions/gethome';
 import '../../fonts/MontserratMedium.ttf';
 import './styles.css'
 
-const LoadingGif = () => {
+const LoadingGif = (props) => {
 
     const [w,setW] = useState(0);
     const [e,setE] = useState(0);
@@ -124,6 +124,9 @@ const LoadingGif = () => {
     }
 
     const hideIntro = () => {
+        setTimeout(() => {
+            props.isLoaded(true);
+        },1000)
         setW(2);
         setE(2);
         setL(2);
