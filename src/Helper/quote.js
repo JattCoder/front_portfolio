@@ -1,0 +1,1 @@
+export const getNewQuote = state => state.quote;

@@ -4,7 +4,6 @@ import { Provider } from "react-redux";
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import './Styles/backgrounda.css'
 import Store from './store/store'
 
 let store = Store()
