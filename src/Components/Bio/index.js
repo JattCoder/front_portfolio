@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getProfileName, getProfileDesc } from '../../Helper/userInfo';
-import MyPic from '../myPic/me.png';
 
-const Bio = (props) => {
+const Bio = () => {
 
     const name = useSelector((state) => getProfileName(state));
     const desc = useSelector((state) => getProfileDesc(state));
-    const [hiSize, setHiSize] = useState(0); // 50 -> 45
-    const [imSize, setImSize] = useState(0); // 50 -> 45
-    const [nameSize, setNameSize] = useState(0); // 50
+    const [hiSize, setHiSize] = useState(0);
+    const [imSize, setImSize] = useState(0);
+    const [nameSize, setNameSize] = useState(0);
     const [descOpacity, setDescOpacity] = useState(0);
     const [frameOpacity, setFrameOpacity] = useState(0);
     

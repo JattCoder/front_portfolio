@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
-const BottomArrows = (props) => {
+const BottomArrows = () => {
 
-    const [arrow1Color, setArrow1Color] = useState('black'); // rgba(211,211,211,0.3)
-    const [arrow2Color, setArrow2Color] = useState('black'); // rgba(211,211,211,0.3)
-    const [arrow3Color, setArrow3Color] = useState('black'); // rgba(211,211,211,0.3)
+    const [arrow1Color, setArrow1Color] = useState('black');
+    const [arrow2Color, setArrow2Color] = useState('black');
+    const [arrow3Color, setArrow3Color] = useState('black');
 
     const styles = {
         frame: {
