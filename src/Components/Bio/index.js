@@ -1,36 +1,111 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { getProfileName, getProfileDesc } from '../../Helper/userInfo';
 import MyPic from '../myPic/me.png';
 
 const Bio = (props) => {
 
-    const [picOpacity, setPicOpacity] = useState(0);
+    const name = useSelector((state) => getProfileName(state));
+    const desc = useSelector((state) => getProfileDesc(state));
+    const [hiSize, setHiSize] = useState(0); // 50 -> 45
+    const [imSize, setImSize] = useState(0); // 50 -> 45
+    const [nameSize, setNameSize] = useState(0); // 50
+    const [descOpacity, setDescOpacity] = useState(0);
+    const [frameOpacity, setFrameOpacity] = useState(0);
     
     const styles = {
         frame: {
-            position: 'absolute',
-            right: '10%',
-            opacity: picOpacity,
+            opacity: frameOpacity,
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: "all 0.7s ease",
+            WebkitTransition: "all 0.7s ease",
+            MozTransition: "all 0.7s ease",
+            flexDirection: 'row',
+            flex: 1,
+        },
+        hello: {
+            color: 'red',
+            fontFamily: 'Montserrat',
+            fontWeight: 'bold',
+            fontSize: hiSize,
             transition: "all 0.7s ease",
             WebkitTransition: "all 0.7s ease",
             MozTransition: "all 0.7s ease",
         },
-        pic: {
-            height: 530,
-            width: 400,
+        i: {
+            color: 'white',
+            fontFamily: 'Montserrat',
+            fontWeight: 'bold',
+            fontSize: imSize,
+            transition: "all 0.7s ease",
+            WebkitTransition: "all 0.7s ease",
+            MozTransition: "all 0.7s ease",
+        },
+        name: {
+            color: 'white',
+            fontFamily: 'Montserrat',
+            fontWeight: 'bold',
+            fontSize: nameSize,
+            transition: "all 0.7s ease",
+            WebkitTransition: "all 0.7s ease",
+            MozTransition: "all 0.7s ease",
+        },
+        desc: {
+            color: 'white',
+            fontFamily: 'Montserrat',
+            fontSize: 20,
+            opacity: descOpacity,
+            transition: "all 0.7s ease",
+            WebkitTransition: "all 0.7s ease",
+            MozTransition: "all 0.7s ease",
         }
     }
 
-    const animatePic = () => {
-        setPicOpacity(1);
+    const displayDesc = () => {
+        setDescOpacity(1);
+    }
+
+    const displayName = () => {
+        setTimeout(() => {
+            displayDesc();
+        },2000);
+        setNameSize(50);
+        setImSize(45);
+    }
+
+    const displayIm = () => {
+        setTimeout(() => {
+            displayName();
+        },2000);
+        setImSize(60);
+        setHiSize(45);
+    }
+
+    const displayHi = () => {
+        setTimeout(() => {
+            displayIm();
+        },2000);
+        setHiSize(60);
+    }
+
+    const animateBio = () => {
+        setFrameOpacity(1);
+        displayHi();
     }
 
     useEffect(() => {
-        animatePic();
+        animateBio();
     },[])
 
     return(
         <div style={styles.frame}>
-            <img src={MyPic} style={styles.pic} alt={'Can not display'} />
+            <div style={{position: 'absolute', left: '15%', top: '25%'}}>
+                <text style={styles.hello}>Hi</text>
+                <text style={styles.i}>, I'm</text>
+            </div>
+            <div style={{position: 'absolute', left: '15%', top: '35%'}}><text style={styles.name}>{name}</text></div>
+            <div style={{position: 'absolute', left: '15%', top: '55%', width: '70%'}}><text style={styles.desc}>{desc}</text></div>
         </div>
     )
 }
