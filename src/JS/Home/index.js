@@ -4,6 +4,7 @@ import { getquote } from '../../actions/getquote';
 import { getNewQuote } from '../../Helper/quote';
 import Bio from '../../Components/Bio';
 import BottomArrows from '../../Components/BottomArrows';
+import { deviceType } from '../../Helper/screenDimentions';
 
 const Home = () => {
 
@@ -19,6 +20,8 @@ const Home = () => {
       alignitems: 'center',
     }
   }
+
+  console.log(deviceType());
 
   const getQuote = async () => {
     try{

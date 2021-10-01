@@ -88,7 +88,9 @@ const BottomArrows = () => {
     }
 
     useEffect(() => {
-        waitBeforeAnimate();
+        setTimeout(() => {
+            waitBeforeAnimate();
+        },7000)
     },[])
 
     return(

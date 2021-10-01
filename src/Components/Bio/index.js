@@ -17,9 +17,9 @@ const Bio = () => {
             opacity: frameOpacity,
             alignItems: 'center',
             justifyContent: 'center',
-            transition: "all 0.7s ease",
-            WebkitTransition: "all 0.7s ease",
-            MozTransition: "all 0.7s ease",
+            transition: "all 1s ease",
+            WebkitTransition: "all 1s ease",
+            MozTransition: "all 1s ease",
             flexDirection: 'row',
             flex: 1,
         },
@@ -28,36 +28,36 @@ const Bio = () => {
             fontFamily: 'Montserrat',
             fontWeight: 'bold',
             fontSize: hiSize,
-            transition: "all 0.7s ease",
-            WebkitTransition: "all 0.7s ease",
-            MozTransition: "all 0.7s ease",
+            transition: "all 1s ease",
+            WebkitTransition: "all 1s ease",
+            MozTransition: "all 1s ease",
         },
         i: {
             color: 'white',
             fontFamily: 'Montserrat',
             fontWeight: 'bold',
             fontSize: imSize,
-            transition: "all 0.7s ease",
-            WebkitTransition: "all 0.7s ease",
-            MozTransition: "all 0.7s ease",
+            transition: "all 1s ease",
+            WebkitTransition: "all 1s ease",
+            MozTransition: "all 1s ease",
         },
         name: {
             color: 'white',
             fontFamily: 'Montserrat',
             fontWeight: 'bold',
             fontSize: nameSize,
-            transition: "all 0.7s ease",
-            WebkitTransition: "all 0.7s ease",
-            MozTransition: "all 0.7s ease",
+            transition: "all 1s ease",
+            WebkitTransition: "all 1s ease",
+            MozTransition: "all 1s ease",
         },
         desc: {
             color: 'white',
             fontFamily: 'Montserrat',
             fontSize: 20,
             opacity: descOpacity,
-            transition: "all 0.7s ease",
-            WebkitTransition: "all 0.7s ease",
-            MozTransition: "all 0.7s ease",
+            transition: "all 1s ease",
+            WebkitTransition: "all 1s ease",
+            MozTransition: "all 1s ease",
         }
     }
 
@@ -68,7 +68,7 @@ const Bio = () => {
     const displayName = () => {
         setTimeout(() => {
             displayDesc();
-        },2000);
+        },1500);
         setNameSize(50);
         setImSize(45);
     }
@@ -76,7 +76,7 @@ const Bio = () => {
     const displayIm = () => {
         setTimeout(() => {
             displayName();
-        },2000);
+        },1500);
         setImSize(60);
         setHiSize(45);
     }
@@ -84,7 +84,7 @@ const Bio = () => {
     const displayHi = () => {
         setTimeout(() => {
             displayIm();
-        },2000);
+        },1500);
         setHiSize(60);
     }
 
