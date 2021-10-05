@@ -4,6 +4,7 @@ import { getAllMedia } from '../../Helper/socialMedia';
 import Bio from '../../Components/Bio';
 import BottomArrows from '../../Components/BottomArrows';
 import SocialMediaAccounts from '../../Components/SocialMediaAccounts';
+import BottomNavBar from '../../Components/bottomNavBar';
 
 const Home = () => {
 
@@ -23,6 +24,7 @@ const Home = () => {
       <div style={styles.body}>
         <SocialMediaAccounts />
         <Bio />
+        <BottomNavBar />
         {/* <BottomArrows /> */}
       </div>
     );
