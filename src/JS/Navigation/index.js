@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Bio from '../../Components/Bio';
 import SocialMediaAccounts from '../../Components/SocialMediaAccounts';
 import BottomNavBar from '../../Components/bottomNavBar';
+import Slides from '../../Components/Slides';
 
-const Home = () => {
+const Navigation = () => {
 
   const [selection, setSelection] = useState(2);
   const styles = {
@@ -21,10 +22,10 @@ const Home = () => {
     return(
       <div style={styles.body}>
         <SocialMediaAccounts />
-        <Bio />
+        <Slides selection={selection} />
         <BottomNavBar selection={selection} newSelection={setSelection}/>
       </div>
     );
 }
 
-export default Home;
+export default Navigation;
