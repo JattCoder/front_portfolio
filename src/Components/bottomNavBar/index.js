@@ -8,13 +8,13 @@ const BottomNavBar = () => {
     const styles = {
         frame: {
             height: '20%',
-            width: '100%',
+            width: '95%',
             position: 'absolute',
             bottom: 0,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            background: "linear-gradient(black, #848587);"
+            background: "linear-gradient(to right, rgba(0,0,0,0), rgba(211,211,211, 0.09), rgba(0,0,0,0))",
         },
         selectedItem: {
             marginLeft: '5%',
