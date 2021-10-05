@@ -1,0 +1,1 @@
+export const getAllMedia = state => state.gethome.home;

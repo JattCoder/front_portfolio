@@ -1,15 +1,11 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getquote } from '../../actions/getquote';
-import { getNewQuote } from '../../Helper/quote';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { getAllMedia } from '../../Helper/socialMedia';
 import Bio from '../../Components/Bio';
 import BottomArrows from '../../Components/BottomArrows';
-import { deviceType } from '../../Helper/screenDimentions';
+import SocialMediaAccounts from '../../Components/SocialMediaAccounts';
 
 const Home = () => {
-
-  const newQuote = useSelector(state => getNewQuote(state));
-  const dispatch = useDispatch();
 
   const styles = {
     body: {
@@ -21,31 +17,13 @@ const Home = () => {
     }
   }
 
-  console.log(deviceType());
-
-  const getQuote = async () => {
-    try{
-      await dispatch(getquote());
-      letsWait();
-    } catch (err) {
-      console.log(JSON.parse(err.message));
-    }
-  }
-
-  const letsWait = () => {
-    setTimeout(()=>{
-      getQuote();
-    },5000)
-  }
-
-  useEffect(()=>{
-    console.log('Home is loading');
-  },[])
+  useEffect(()=>{},[])
 
     return(
       <div style={styles.body}>
+        <SocialMediaAccounts />
         <Bio />
-        <BottomArrows />
+        {/* <BottomArrows /> */}
       </div>
     );
 }
