@@ -16,6 +16,9 @@ const Slides = (props) => {
         frame: {
             height: '100%',
             width: '100%',
+            transition: "all 0.5s ease",
+            WebkitTransition: "all 0.5s ease",
+            MozTransition: "all 0.5s ease",
             opacity: pageOpacity
         },
         
