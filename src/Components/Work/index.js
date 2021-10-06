@@ -15,8 +15,7 @@ const Work = () => {
             width: '100%',
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: 'red'
+            alignItems: 'center'
         },
         centeredContainer: {
             height: '65%',
