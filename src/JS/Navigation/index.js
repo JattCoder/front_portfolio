@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { getAllMedia } from '../../Helper/socialMedia';
 import Bio from '../../Components/Bio';
-import BottomArrows from '../../Components/BottomArrows';
 import SocialMediaAccounts from '../../Components/SocialMediaAccounts';
 import BottomNavBar from '../../Components/bottomNavBar';
+import Slides from '../../Components/Slides';
 
-const Home = () => {
+const Navigation = () => {
 
+  const [selection, setSelection] = useState(2);
   const styles = {
     body: {
       height: '100%',
@@ -23,11 +22,10 @@ const Home = () => {
     return(
       <div style={styles.body}>
         <SocialMediaAccounts />
-        <Bio />
-        <BottomNavBar />
-        {/* <BottomArrows /> */}
+        <Slides selection={selection} />
+        <BottomNavBar selection={selection} newSelection={setSelection}/>
       </div>
     );
 }
 
-export default Home;
+export default Navigation;

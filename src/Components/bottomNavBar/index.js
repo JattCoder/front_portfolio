@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 
-const BottomNavBar = () => {
+const BottomNavBar = (props) => {
 
-    const [selection, setSelection] = useState(2);
     const Sections = ['Apps', 'Work', 'Home', 'Education', 'Contact'];
     const styles = {
         frame: {
@@ -50,8 +48,8 @@ const BottomNavBar = () => {
     }
 
     const render = (item, index) => (
-        <div onClick={() => setSelection(index)} style={index === selection ? styles.selectedItem : styles.nonSelectedItem}>
-            <text style={index === selection ? styles.selectedItemText : styles.nonSelectedItemText}>{item}</text>
+        <div onClick={() => props.newSelection(index)} style={index === props.selection ? styles.selectedItem : styles.nonSelectedItem}>
+            <text style={index === props.selection ? styles.selectedItemText : styles.nonSelectedItemText}>{item}</text>
         </div>
     )
 
