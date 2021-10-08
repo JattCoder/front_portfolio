@@ -33,8 +33,6 @@ const Work = () => {
         }
     }
 
-    console.log('Jobs: ',allJobs)
-
     return (
         <div style={styles.frame}>
             <div style={styles.centeredContainer}>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const BottomNavBar = (props) => {
 
+    const [preSelected, setPreSelected] = useState(-1);
     const Sections = ['Apps', 'Work', 'Home', 'Education', 'Contact'];
     const styles = {
         frame: {
@@ -23,6 +24,24 @@ const BottomNavBar = (props) => {
             MozTransition: "all 0.7s ease",
         },
         selectedItemText: {
+            fontFamily: 'Montserrat',
+            color: 'red',
+            fontSize: 20,
+            fontWeight: 'bold',
+            transition: "all 0.7s ease",
+            WebkitTransition: "all 0.7s ease",
+            MozTransition: "all 0.7s ease",
+        },
+        preSelectedItem: {
+            height: '20%',
+            marginLeft: '5%',
+            marginRight: '5%',
+            marginBottom: '3%',
+            transition: "all 0.7s ease",
+            WebkitTransition: "all 0.7s ease",
+            MozTransition: "all 0.7s ease",
+        },
+        preSelectedItemText: {
             fontFamily: 'Montserrat',
             color: 'white',
             fontSize: 20,
@@ -47,9 +66,29 @@ const BottomNavBar = (props) => {
         }
     }
 
+    const setItemStyle = (index) => {
+        if(index === preSelected && index !== props.selection) {
+            return styles.preSelectedItem;
+        } else if(index === props.selection){
+            return styles.selectedItem;
+        } else {
+            return styles.nonSelectedItem;
+        }
+    }
+
+    const setItemTextStyle = (index) => {
+        if(index === preSelected && index !== props.selection) {
+            return styles.preSelectedItemText;
+        } else if(index === props.selection){
+            return styles.selectedItemText;
+        } else {
+            return styles.nonSelectedItemText;
+        }
+    }
+
     const render = (item, index) => (
-        <div onClick={() => props.newSelection(index)} style={index === props.selection ? styles.selectedItem : styles.nonSelectedItem}>
-            <text style={index === props.selection ? styles.selectedItemText : styles.nonSelectedItemText}>{item}</text>
+        <div onClick={() => props.newSelection(index)} onMouseEnter={()=>setPreSelected(index)} onMouseLeave={()=>setPreSelected(-1)} style={setItemStyle(index)}>
+            <text style={setItemTextStyle(index)}>{item}</text>
         </div>
     )
 
