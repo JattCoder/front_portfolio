@@ -4,7 +4,46 @@ import { getAllProjects } from '../../Helper/projects';
 
 const Apps = () => {
 
-    const apps = useSelector(state => getAllProjects(state));
+    /*
+        t.string "name"
+        t.string "icon"
+        t.string "shortDesc"
+        t.text "description"
+        t.string "images"
+    */
+
+    const apps = [
+        {
+            name: 'App1',
+            icon: '',
+            shortDesc: 'Mobile App',
+            description: 'This is an mobile app',
+            images: '',
+        },
+        {
+            name: 'App2',
+            icon: '',
+            shortDesc: 'Mobile App',
+            description: 'This is an mobile app',
+            images: '',
+        },
+        {
+            name: 'Npm1',
+            icon: '',
+            shortDesc: 'NPM',
+            description: 'This is an npm1 component',
+            images: '',
+        },
+        {
+            name: 'Npm2',
+            icon: '',
+            shortDesc: 'NPM',
+            description: 'This is an npm2 component',
+            images: '',
+        },
+    ];
+
+    //const apps = useSelector(state => getAllProjects(state));
     const styles = {
         frame: {
             height: '100%',

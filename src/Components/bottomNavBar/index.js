@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 
 const BottomNavBar = (props) => {
 
+    const [frameOpacity, setFrameOpacity] = useState(0);
+    const [marginBottom, setMarginBottom] = useState('-5%');
+    const [optionOpacity, setOptionOpacity] = useState(0);
     const [preSelected, setPreSelected] = useState(-1);
     const Sections = ['Apps', 'Work', 'Home', 'Education', 'Contact'];
     const styles = {
@@ -10,10 +13,14 @@ const BottomNavBar = (props) => {
             width: '95%',
             position: 'absolute',
             bottom: 0,
+            opacity: frameOpacity,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             background: "linear-gradient(to right, rgba(0,0,0,0), rgba(211,211,211, 0.09), rgba(0,0,0,0))",
+            transition: "all 0.7s ease",
+            WebkitTransition: "all 0.7s ease",
+            MozTransition: "all 0.7s ease",
         },
         selectedItem: {
             marginLeft: '5%',
@@ -53,6 +60,8 @@ const BottomNavBar = (props) => {
         nonSelectedItem: {
             marginLeft: '5%',
             marginRight: '5%',
+            marginBottom: marginBottom,
+            opacity: optionOpacity,
             transition: "all 0.7s ease",
             WebkitTransition: "all 0.7s ease",
             MozTransition: "all 0.7s ease",
@@ -91,6 +100,16 @@ const BottomNavBar = (props) => {
             <text style={setItemTextStyle(index)}>{item}</text>
         </div>
     )
+
+    useEffect(() => {
+        setTimeout(() => {
+            setTimeout(() => {
+                setMarginBottom('0%');
+                setOptionOpacity(1);
+            },1000)
+            setFrameOpacity(1);
+        },2000)
+    },[])
 
     return(
         <div style={styles.frame}>
