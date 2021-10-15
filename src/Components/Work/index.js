@@ -4,11 +4,10 @@ import { getJobs, getLastJob } from '../../Helper/jobs';
 import Cs from './Cs';
 import Freelance from './freelance.png';
 import Walletifai from './walletifai.svg';
+import Live from './Live';
 
 
 const Work = () => {
-
-    const LongText = 'This is one long long long long long long long long long long long long long long long long long long long long long long long long long text';
 
     const currentJob = useSelector(state => getLastJob(state));
     const allJobs = useSelector(state => getJobs(state));
@@ -71,10 +70,12 @@ const Work = () => {
             fontSize: 15,
         },
         workDescContainer: {
-
+            width: '80%',
+            height: '80%'
         },
         workDesc: {
-
+            color: 'white',
+            fontFamily: 'Montserrat',
         },
         bottomDotContainer: {
             width: '100%',
@@ -120,11 +121,11 @@ const Work = () => {
                                     <div style={styles.workTitleContainer}><text style={styles.workTitle}>{job.title}</text></div>
                                 </div>
                             </div>
-                            <div style={{width: '100%', height: '80%',}}>
-                                <text style={{color: 'white'}}>{job.responsibility}</text>
+                            <div style={styles.workDescContainer}>
+                                <text style={styles.workDesc}>{job.responsibility}</text>
                             </div>
                             <div style={styles.bottomDotContainer}>
-                                <div style={index <= allJobs.length - 2 ? styles.bottomDot : styles.lastDot }/>
+                                {index <= allJobs.length - 2 ? <div style={styles.bottomDot}/> : <Live />}
                                 {index <= allJobs.length - 2 ? <div style={styles.line}/> : null}
                             </div>
                         </div>
