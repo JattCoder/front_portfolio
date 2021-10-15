@@ -34,7 +34,8 @@ const Education = () => {
             display: 'flex'
         },
         schoolBottomContainer: {
-            width: '100%'
+            width: '100%',
+            marginTop: '1.4%',
         },
         schoolName: {
             color: 'white',
@@ -52,7 +53,7 @@ const Education = () => {
         schoolDesc: {
             color: 'white',
             fontFamily: 'Montserrat',
-            fontSize: 20
+            fontSize: 20,
         }
     }
 
@@ -71,15 +72,15 @@ const Education = () => {
 
     const renderSchool = (school, index) => {
         return (
-            <li key={school.id} style={{height: '30%', overflowY: 'scroll',}}>
+            <li key={school.id} style={{height: '30%', width: '100%', overflowY: 'scroll',}}>
                 <div style={styles.educationCell}>
                     <div style={styles.schoolTopContainer}>
                         <img style={styles.schoolImage} src={assignImage(school.icon)} alt={'School'} />
                         <text style={styles.schoolName}>{school.name}</text>
                     </div>
                     <div style={styles.schoolBottomContainer}>
-                            <text style={styles.schoolDesc}>{school.description}</text>
-                        </div>
+                        <text style={styles.schoolDesc}>{school.description}</text>
+                    </div>
                 </div>
             </li>
         )
