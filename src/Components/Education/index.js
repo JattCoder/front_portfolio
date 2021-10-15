@@ -15,14 +15,44 @@ const Education = () => {
     const styles = {
         frame: {
             height: '60%',
-            width: '70%',
+            width: '100%',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            overflowY: 'scroll',
+            marginTop: '-5%',
+            background: "linear-gradient(black, black, rgba(0,0,0,0), black, black)",
+        },
+        schoolListContainer: {
+            height: '100%',
         },
         educationCell: {
-            display: 'flex',
             marginBottom: '2%'
+        },
+        schoolTopContainer: {
+            width: '100%',
+            display: 'flex'
+        },
+        schoolBottomContainer: {
+            width: '100%'
+        },
+        schoolName: {
+            color: 'white',
+            marginTop: '1%',
+            marginLeft: '1.2%',
+            fontFamily: 'Montserrat',
+            fontWeight: 'bold',
+            fontSize: 20
+        },
+        schoolImage: {
+            height: 50,
+            width: 50,
+            borderRadius: 10
+        },
+        schoolDesc: {
+            color: 'white',
+            fontFamily: 'Montserrat',
+            fontSize: 20
         }
     }
 
@@ -37,12 +67,19 @@ const Education = () => {
         else if(schoolImg.includes('san')) return San;
     }
 
+    console.log('School: ',schools[0])
+
     const renderSchool = (school, index) => {
         return (
-            <li key={school.id}>
+            <li key={school.id} style={{height: '30%', overflowY: 'scroll',}}>
                 <div style={styles.educationCell}>
-                    <img style={{height: 50, width: 50}} src={assignImage(school.icon)} alt={'School'} />
-                    <text style={{color: 'white'}}>{school.name}</text>
+                    <div style={styles.schoolTopContainer}>
+                        <img style={styles.schoolImage} src={assignImage(school.icon)} alt={'School'} />
+                        <text style={styles.schoolName}>{school.name}</text>
+                    </div>
+                    <div style={styles.schoolBottomContainer}>
+                            <text style={styles.schoolDesc}>{school.description}</text>
+                        </div>
                 </div>
             </li>
         )
@@ -50,7 +87,7 @@ const Education = () => {
 
     return (
         <div style={styles.frame}>
-            <ul>
+            <ul style={styles.schoolListContainer}>
                 {schools.map((school, index) => {
                     return renderSchool(school, index)
                 })}
