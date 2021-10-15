@@ -17,7 +17,7 @@ const Work = () => {
             width: '70%',
             display: 'flex',
             alignItems: 'center',
-            background: "linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0), rgba(0,0,0,1)",
+            background: "linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0), rgba(0,0,0,1))",
         },
         centeredContainer: {
             height: '65%',
@@ -91,16 +91,10 @@ const Work = () => {
             background: '#D3D3D3',
             borderRadius: 50,
         },
-        lastDot: {
-            height: 15,
-            width: 15,
-            background: 'red',
-            borderRadius: 50,
-        },
         line: {
             width: '95%',
-            height: '1%',
-            background: 'white',
+            height: '10%',
+            background: "linear-gradient(to right, white, white, black)",
             marginLeft: '2%',
         }
     }
