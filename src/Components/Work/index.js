@@ -17,6 +17,7 @@ const Work = () => {
             width: '70%',
             display: 'flex',
             alignItems: 'center',
+            justifyContent: 'center',
             background: "linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0), rgba(0,0,0,1))",
         },
         centeredContainer: {
