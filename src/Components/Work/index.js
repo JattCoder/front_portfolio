@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { getJobs, getLastJob } from '../../Helper/jobs';
 import Cs from './Cs';
@@ -99,31 +99,39 @@ const Work = () => {
         }
     }
 
+    const renderJob = (job, index) => {
+        return (
+            <div style={styles.workCell}>
+                <div style={{display: 'flex', alignItems: 'center'}}>
+                    <div style={styles.workImageContainer}>
+                        {index === 0 ? (<div style={{background: '#696969', height: 50, width: 50, justifyContent: 'center', alignItems: 'center', borderRadius: 2}}><text style={{color: 'white', fontFamily: 'Montserrat', fontWeight: 'bold', marginLeft: '5%', marginTop: '5%'}}>C's</text></div>) : 
+                        <img style={styles.workImage} src={index === 0 ? null : index === 1 ? Freelance : Walletifai} alt={'Work'} />}
+                    </div>
+                    <div style={{height: '100%', width: '100%'}}>
+                        <div style={styles.workNameContainer}><text style={styles.workName}>{job.name.replace('and Deli', '')}</text></div>
+                        <div style={styles.workTitleContainer}><text style={styles.workTitle}>{job.title}</text></div>
+                    </div>
+                </div>
+                <div style={styles.workDescContainer}>
+                    <text style={styles.workDesc}>{job.responsibility}</text>
+                </div>
+                <div style={styles.bottomDotContainer}>
+                    {index <= allJobs.length - 2 ? <div style={styles.bottomDot}/> : <Live />}
+                    {index <= allJobs.length - 2 ? <div style={styles.line}/> : null}
+                </div>
+            </div>
+        )
+    }
+
+    useEffect(() => {
+
+    },[])
+
     return (
         <div style={styles.frame}>
             <div style={styles.centeredContainer}>
                 {allJobs.map((job, index) => {
-                    return(
-                       <div style={styles.workCell}>
-                            <div style={{display: 'flex', alignItems: 'center'}}>
-                                <div style={styles.workImageContainer}>
-                                    {index === 0 ? (<div style={{background: '#696969', height: 50, width: 50, justifyContent: 'center', alignItems: 'center', borderRadius: 2}}><text style={{color: 'white', fontFamily: 'Montserrat', fontWeight: 'bold', marginLeft: '5%', marginTop: '5%'}}>C's</text></div>) : 
-                                    <img style={styles.workImage} src={index === 0 ? null : index === 1 ? Freelance : Walletifai} alt={'Work'} />}
-                                </div>
-                                <div style={{height: '100%', width: '100%'}}>
-                                    <div style={styles.workNameContainer}><text style={styles.workName}>{job.name.replace('and Deli', '')}</text></div>
-                                    <div style={styles.workTitleContainer}><text style={styles.workTitle}>{job.title}</text></div>
-                                </div>
-                            </div>
-                            <div style={styles.workDescContainer}>
-                                <text style={styles.workDesc}>{job.responsibility}</text>
-                            </div>
-                            <div style={styles.bottomDotContainer}>
-                                {index <= allJobs.length - 2 ? <div style={styles.bottomDot}/> : <Live />}
-                                {index <= allJobs.length - 2 ? <div style={styles.line}/> : null}
-                            </div>
-                        </div>
-                    )
+                    return renderJob(job, index);
                 })}
             </div>
         </div>

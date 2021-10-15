@@ -17,6 +17,7 @@ const BottomNavBar = (props) => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            //boxShadow: '0px 0px 70px 5px #555555',
             background: "linear-gradient(to right, rgba(0,0,0,0), rgba(211,211,211, 0.09), rgba(0,0,0,0))",
             transition: "all 0.7s ease",
             WebkitTransition: "all 0.7s ease",
