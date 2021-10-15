@@ -40,10 +40,9 @@ const BottomNavBar = (props) => {
             MozTransition: "all 0.7s ease",
         },
         preSelectedItem: {
-            height: '20%',
             marginLeft: '5%',
             marginRight: '5%',
-            marginBottom: '3%',
+            marginBottom: marginBottom,
             transition: "all 0.7s ease",
             WebkitTransition: "all 0.7s ease",
             MozTransition: "all 0.7s ease",
