@@ -9,6 +9,7 @@ const Contant = () => {
     const [submitBackgroundColor, setTryAgainBackgroundColor] = useState('black');
     const [submitOpacity, setTryAgainOpacity] = useState(1);
     const [submitButtonText, setSubmitText] = useState('SUBMIT');
+    const [loading, setLoading] = useState(false);
     const [errors, setErrors] = useState([]);
     const dispatch = useDispatch();
     const [form, setForm] = useState({
@@ -211,17 +212,28 @@ const Contant = () => {
     }
 
     const onPress = async () => {
-        const errors = checkErrors();
-        if (errors.length > 0) {
-            return;
-        }
-        try {
-            await dispatch(submitReview(JSON.stringify(form)));
-            setTimeout(() => setSubmitText('SUBMIT'),5000);
-            setSubmitText('THANK YOU');
-            setForm({name: '', email: '', details: ''});
-        } catch (err) {
-            console.log('Back-End Error: ',JSON.parse(err.message));
+        setSubmitText('SUBMITTING');
+        if (!loading) {
+            console.log('Submit Request')
+            setLoading(true);
+            const errors = checkErrors();
+            if (errors.length > 0) {
+                setLoading(false);
+                setSubmitText('SUBMIT');
+                return;
+            }
+            try {
+                await dispatch(submitReview(JSON.stringify(form)));
+                setLoading(false);
+                setTimeout(() => setSubmitText('SUBMIT'),5000);
+                setSubmitText('THANK YOU');
+                setForm({name: '', email: '', details: ''});
+            } catch (err) {
+                setLoading(false);
+                setTimeout(() => setSubmitText('SUBMIT'),5000);
+                setSubmitText('FAILED');
+                console.log('Back-End Error: ',JSON.parse(err.message));
+            }
         }
     }
 
@@ -262,7 +274,7 @@ const Contant = () => {
                             <text style={styles.nameTitleTextContainer}>Name</text>
                         </div>
                         <div style={styles.nameInputContainer}>
-                            <input type="text" placeholder='Name' onChange={(d) => handleInputs(d.target.value, 'name')} value={form.name} style={styles.nameInput} />
+                            <input type="text" placeholder='Name' onChange={(d) => handleInputs(d.target.value, 'name')} value={form.name} disabled = {loading ? "disabled" : ""} style={styles.nameInput} />
                         </div>
                     </div>
                     <div style={styles.emailContainer}>
@@ -270,7 +282,7 @@ const Contant = () => {
                             <text style={styles.emailTitleTextContainer}>Email</text>
                         </div>
                         <div style={styles.emailInputContainer}>
-                            <input type="text" placeholder='Email' onChange={(d) => handleInputs(d.target.value, 'email')} value={form.email} style={styles.emailInput} />
+                            <input type="text" placeholder='Email' onChange={(d) => handleInputs(d.target.value, 'email')} value={form.email} disabled = {loading ? "disabled" : ""} style={styles.emailInput} />
                         </div>
                     </div>
                     <div style={styles.detailsContainer}>
@@ -278,12 +290,12 @@ const Contant = () => {
                             <text style={styles.detailsTitleTextContainer}>Additional Details</text>
                         </div>
                         <div style={styles.detailsInputContainer}>
-                            <textarea type="text" placeholder='Details' onChange={(d) => handleInputs(d.target.value, 'details')} value={form.details} style={styles.detailsInput} />
+                            <textarea type="text" placeholder='Details' onChange={(d) => handleInputs(d.target.value, 'details')} value={form.details} disabled = {loading ? "disabled" : ""} style={styles.detailsInput} />
                         </div>
                     </div>
                     <div style={{height: '20%', width: '70%', position: 'absolute', bottom: '19.6%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                        <div class='submit-pointer' onMouseEnter={onMouseHoverIn} onMouseLeave={onMouseHoverOut} onClick={() => onPress()}  style={styles.submitButton}>
-                                <text style={styles.submitButtonColor}>{submitButtonText}</text>
+                        <div class='submit-pointer' onMouseEnter={onMouseHoverIn} onMouseLeave={onMouseHoverOut} onClick={() => onPress()} disabled = {loading ? "disabled" : ""} style={styles.submitButton}>
+                            <text style={styles.submitButtonColor}>{submitButtonText}</text>
                         </div>
                     </div>
                 </div>
