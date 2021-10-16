@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { submitReview } from '../../actions/submitReview';
+import './styles.css';
 
 const Contant = () => {
 
     const [submitTextColor, setTryAgainTextColor] = useState('white');
     const [submitBackgroundColor, setTryAgainBackgroundColor] = useState('black');
     const [submitOpacity, setTryAgainOpacity] = useState(1);
+    const [submitButtonText, setSubmitText] = useState('SUBMIT');
     const [errors, setErrors] = useState([]);
+    const dispatch = useDispatch();
     const [form, setForm] = useState({
         name: '',
         email: '',
@@ -205,14 +210,19 @@ const Contant = () => {
         return errors;
     }
 
-    const onPress = () => {
+    const onPress = async () => {
         const errors = checkErrors();
         if (errors.length > 0) {
-            console.log('Empty: ')
-            //display errors
             return;
         }
-        console.log(JSON.stringify(form));
+        try {
+            await dispatch(submitReview(JSON.stringify(form)));
+            setTimeout(() => setSubmitText('SUBMIT'),5000);
+            setSubmitText('THANK YOU');
+            setForm({name: '', email: '', details: ''});
+        } catch (err) {
+            console.log('Back-End Error: ',JSON.parse(err.message));
+        }
     }
 
     const handleInputs = (input, type) => {
@@ -252,7 +262,7 @@ const Contant = () => {
                             <text style={styles.nameTitleTextContainer}>Name</text>
                         </div>
                         <div style={styles.nameInputContainer}>
-                            <input type="text" placeholder='Name' onChange={(d) => handleInputs(d.target.value, 'name')} style={styles.nameInput} />
+                            <input type="text" placeholder='Name' onChange={(d) => handleInputs(d.target.value, 'name')} value={form.name} style={styles.nameInput} />
                         </div>
                     </div>
                     <div style={styles.emailContainer}>
@@ -260,7 +270,7 @@ const Contant = () => {
                             <text style={styles.emailTitleTextContainer}>Email</text>
                         </div>
                         <div style={styles.emailInputContainer}>
-                            <input type="text" placeholder='Email' onChange={(d) => handleInputs(d.target.value, 'email')} style={styles.emailInput} />
+                            <input type="text" placeholder='Email' onChange={(d) => handleInputs(d.target.value, 'email')} value={form.email} style={styles.emailInput} />
                         </div>
                     </div>
                     <div style={styles.detailsContainer}>
@@ -268,12 +278,12 @@ const Contant = () => {
                             <text style={styles.detailsTitleTextContainer}>Additional Details</text>
                         </div>
                         <div style={styles.detailsInputContainer}>
-                            <textarea type="text" placeholder='Details' onChange={(d) => handleInputs(d.target.value, 'details')} style={styles.detailsInput} />
+                            <textarea type="text" placeholder='Details' onChange={(d) => handleInputs(d.target.value, 'details')} value={form.details} style={styles.detailsInput} />
                         </div>
                     </div>
                     <div style={{height: '20%', width: '70%', position: 'absolute', bottom: '19.6%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                        <div onMouseEnter={onMouseHoverIn} onMouseLeave={onMouseHoverOut} onClick={() => onPress()}  style={styles.submitButton}>
-                                <text style={styles.submitButtonColor}>SUBMIT</text>
+                        <div class='submit-pointer' onMouseEnter={onMouseHoverIn} onMouseLeave={onMouseHoverOut} onClick={() => onPress()}  style={styles.submitButton}>
+                                <text style={styles.submitButtonColor}>{submitButtonText}</text>
                         </div>
                     </div>
                 </div>

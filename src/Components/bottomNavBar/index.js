@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './styles.css';
 
 const BottomNavBar = (props) => {
 
@@ -96,7 +97,7 @@ const BottomNavBar = (props) => {
     }
 
     const render = (item, index) => (
-        <div onClick={() => props.newSelection(index)} onMouseEnter={()=>setPreSelected(index)} onMouseLeave={()=>setPreSelected(-1)} style={setItemStyle(index)}>
+        <div class='bottom_selection' onClick={() => props.newSelection(index)} onMouseEnter={()=>setPreSelected(index)} onMouseLeave={()=>setPreSelected(-1)} style={setItemStyle(index)}>
             <text style={setItemTextStyle(index)}>{item}</text>
         </div>
     )
