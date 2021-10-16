@@ -5,6 +5,7 @@ const Contant = () => {
     const [submitTextColor, setTryAgainTextColor] = useState('white');
     const [submitBackgroundColor, setTryAgainBackgroundColor] = useState('black');
     const [submitOpacity, setTryAgainOpacity] = useState(1);
+    const [errors, setErrors] = useState([]);
     const [form, setForm] = useState({
         name: '',
         email: '',
@@ -81,7 +82,7 @@ const Contant = () => {
             fontFamily: 'montserrat',
             borderRadius: 5,
             borderWidth: 1,
-            borderColor: '#878787',
+            borderColor: errors.includes('name') ? 'red' : '#878787',
             paddingLeft: '4%',
             paddingRight: '4%',
             fontSize: 17,
@@ -113,7 +114,7 @@ const Contant = () => {
             fontFamily: 'montserrat',
             borderRadius: 5,
             borderWidth: 1,
-            borderColor: '#878787',
+            borderColor: errors.includes('email') ? 'red' : '#878787',
             paddingLeft: '4%',
             paddingRight: '4%',
             fontSize: 17,
@@ -149,7 +150,7 @@ const Contant = () => {
             fontFamily: 'montserrat',
             borderRadius: 5,
             borderWidth: 1,
-            borderColor: '#878787',
+            borderColor: errors.includes('details') ? 'red' : '#878787',
             padding: '4%',
             fontSize: 17,
             outline: 'none',
@@ -200,6 +201,7 @@ const Contant = () => {
         if (form.details.trim().length === 0) {
             errors.push('details');
         }
+        setErrors(errors);
         return errors;
     }
 
@@ -211,6 +213,29 @@ const Contant = () => {
             return;
         }
         console.log(JSON.stringify(form));
+    }
+
+    const handleInputs = (input, type) => {
+        switch(type){
+            case 'name':
+                setForm({...form, name: input});
+                if (errors.includes('name') && input.trim().length > 0) {
+                    errors.splice(errors.indexOf('name'), 1);
+                }
+                break;
+            case 'email':
+                setForm({...form, email: input});
+                if (errors.includes('email') && input.trim().length > 0) {
+                    errors.splice(errors.indexOf('email'), 1);
+                }
+                break;
+            case 'details':
+                setForm({...form, details: input});
+                if (errors.includes('details') && input.trim().length > 0) {
+                    errors.splice(errors.indexOf('details'), 1);
+                }
+                break;
+        }
     }
 
     return(
@@ -227,7 +252,7 @@ const Contant = () => {
                             <text style={styles.nameTitleTextContainer}>Name</text>
                         </div>
                         <div style={styles.nameInputContainer}>
-                            <input type="text" placeholder='Name' onChange={(d) => setForm({...form, name: d.target.value})} style={styles.nameInput} />
+                            <input type="text" placeholder='Name' onChange={(d) => handleInputs(d.target.value, 'name')} style={styles.nameInput} />
                         </div>
                     </div>
                     <div style={styles.emailContainer}>
@@ -235,7 +260,7 @@ const Contant = () => {
                             <text style={styles.emailTitleTextContainer}>Email</text>
                         </div>
                         <div style={styles.emailInputContainer}>
-                            <input type="text" placeholder='Email' onChange={(d) => setForm({...form, email: d.target.value})} style={styles.emailInput} />
+                            <input type="text" placeholder='Email' onChange={(d) => handleInputs(d.target.value, 'email')} style={styles.emailInput} />
                         </div>
                     </div>
                     <div style={styles.detailsContainer}>
@@ -243,7 +268,7 @@ const Contant = () => {
                             <text style={styles.detailsTitleTextContainer}>Additional Details</text>
                         </div>
                         <div style={styles.detailsInputContainer}>
-                            <textarea type="text" placeholder='Details' onChange={(d) => setForm({...form, details: d.target.value})} style={styles.detailsInput} />
+                            <textarea type="text" placeholder='Details' onChange={(d) => handleInputs(d.target.value, 'details')} style={styles.detailsInput} />
                         </div>
                     </div>
                     <div style={{height: '20%', width: '70%', position: 'absolute', bottom: '19.6%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
