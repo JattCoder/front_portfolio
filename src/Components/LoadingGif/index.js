@@ -148,6 +148,7 @@ const LoadingGif = (props) => {
     }
 
     const fetchData = async () => {
+        // start W Color
         try{
             await dispatch(gethome());
             hideWelcome(true);

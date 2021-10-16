@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './styles.css';
 
 const BottomNavBar = (props) => {
 
@@ -17,6 +18,7 @@ const BottomNavBar = (props) => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            //boxShadow: '0px 0px 70px 5px #555555',
             background: "linear-gradient(to right, rgba(0,0,0,0), rgba(211,211,211, 0.09), rgba(0,0,0,0))",
             transition: "all 0.7s ease",
             WebkitTransition: "all 0.7s ease",
@@ -40,10 +42,9 @@ const BottomNavBar = (props) => {
             MozTransition: "all 0.7s ease",
         },
         preSelectedItem: {
-            height: '20%',
             marginLeft: '5%',
             marginRight: '5%',
-            marginBottom: '3%',
+            marginBottom: marginBottom,
             transition: "all 0.7s ease",
             WebkitTransition: "all 0.7s ease",
             MozTransition: "all 0.7s ease",
@@ -96,7 +97,7 @@ const BottomNavBar = (props) => {
     }
 
     const render = (item, index) => (
-        <div onClick={() => props.newSelection(index)} onMouseEnter={()=>setPreSelected(index)} onMouseLeave={()=>setPreSelected(-1)} style={setItemStyle(index)}>
+        <div class='bottom_selection' onClick={() => props.newSelection(index)} onMouseEnter={()=>setPreSelected(index)} onMouseLeave={()=>setPreSelected(-1)} style={setItemStyle(index)}>
             <text style={setItemTextStyle(index)}>{item}</text>
         </div>
     )
