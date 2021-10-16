@@ -78,6 +78,9 @@ const Apps = () => {
             position: 'absolute',
             top: 0,
             left: 0,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
         },
         appBox: {
             height: 330,
@@ -169,9 +172,7 @@ const Apps = () => {
     return (
         <div style={styles.frame}>
             <div style={styles.centeredContainer}>
-                {apps.length > 0 ? apps.map((app, index) => {
-                    return renderApp(app, index)
-                }) : noApps()}
+                {noApps()}
             </div>
         </div>
     )
