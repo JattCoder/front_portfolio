@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Contant = () => {
 
+    const [submitTextColor, setTryAgainTextColor] = useState('white');
+    const [submitBackgroundColor, setTryAgainBackgroundColor] = useState('black');
+    const [submitOpacity, setTryAgainOpacity] = useState(1);
+    const [form, setForm] = useState({
+        name: '',
+        email: '',
+        details: '',
+    });
+
     const styles = {
         frame: {
-            height: '70%',
+            height: '78%',
             width: '70%',
-            marginBottom: '4.4%',
+            marginBottom: '3%',
             alignItems: 'center',
             justifyContent: 'center',
         },
@@ -39,13 +48,169 @@ const Contant = () => {
         bottomContainer: {
             width: '100%',
             height: '80%',
+        },
+        formContainer: {
+            height: '100%',
+            width: '70%',
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
         },
         nameContainer: {
-
+            width: '40%',
+            height: '20%',
+            marginTop: '7%',
+            marginLeft: '15%',
         },
-        
+        nameTitleContainer: {},
+        nameTitleTextContainer: {
+            color: 'white',
+            fontFamily: 'montserrat',
+            fontWeight: 'bold',
+            fontSize: 22
+        },
+        nameInputContainer: {
+            width: '100%',
+            height: '68%',
+        },
+        nameInput: {
+            width: '97.5%',
+            height: '80%',
+            marginTop: '1.4%',
+            background: '#222222',
+            color: 'white',
+            fontFamily: 'montserrat',
+            borderRadius: 5,
+            borderWidth: 1,
+            borderColor: '#878787',
+            paddingLeft: '4%',
+            paddingRight: '4%',
+            fontSize: 17,
+            outline: 'none'
+        },
+        emailContainer: {
+            width: '40%',
+            height: '20%',
+            marginTop: '4%',
+            marginLeft: '15%',
+        },
+        emailTitleContainer: {},
+        emailTitleTextContainer: {
+            color: 'white',
+            fontFamily: 'montserrat',
+            fontWeight: 'bold',
+            fontSize: 22
+        },
+        emailInputContainer: {
+            width: '100%',
+            height: '68%',
+        },
+        emailInput: {
+            width: '97.5%',
+            height: '80%',
+            marginTop: '1.4%',
+            background: '#222222',
+            color: 'white',
+            fontFamily: 'montserrat',
+            borderRadius: 5,
+            borderWidth: 1,
+            borderColor: '#878787',
+            paddingLeft: '4%',
+            paddingRight: '4%',
+            fontSize: 17,
+            outline: 'none'
+        },
+        detailsContainer: {
+            width: '40%',
+            height: '20%',
+            marginTop: '4%',
+            marginLeft: '15%',
+            position: 'absolute',
+            right: '10%',
+            top: '14%',
+        },
+        detailsTitleContainer: {},
+        detailsTitleTextContainer: {
+            color: 'white',
+            fontFamily: 'montserrat',
+            fontWeight: 'bold',
+            fontSize: 22
+        },
+        detailsInputContainer: {
+            width: '90%',
+            height: '150%',
+            marginTop: '-0.6%',
+        },
+        detailsInput: {
+            width: '87.5%',
+            height: '60%',
+            marginTop: '1.4%',
+            background: '#222222',
+            color: 'white',
+            fontFamily: 'montserrat',
+            borderRadius: 5,
+            borderWidth: 1,
+            borderColor: '#878787',
+            padding: '4%',
+            fontSize: 17,
+            outline: 'none',
+            resize: 'none',
+        },
+        submitButton: {
+            width: '13%',
+            height: '35%',
+            border: '1px solid white',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            opacity: submitOpacity,
+            backgroundColor: submitBackgroundColor,
+            transition: "all 0.7s ease",
+            WebkitTransition: "all 0.7s ease",
+            MozTransition: "all 0.7s ease"
+        },
+        submitButtonColor: {
+            color: submitTextColor,
+            fontFamily: 'Montserrat',
+            textAlign: 'center',
+            fontSize: 12,
+            transition: "all 0.7s ease",
+            WebkitTransition: "all 0.7s ease",
+            MozTransition: "all 0.7s ease",
+        }
+    }
+
+    const onMouseHoverIn = () => {
+        setTryAgainBackgroundColor('white');
+        setTryAgainTextColor('black');
+    }
+
+    const onMouseHoverOut = () => {
+        setTryAgainBackgroundColor('rgba(0,0,0,0)');
+        setTryAgainTextColor('white');
+    }
+
+    const checkErrors = () => {
+        const errors = [];
+        if (form.name.trim().length === 0) {
+            errors.push('name');
+        }
+        if (form.email.trim().length === 0 || !form.email.includes('@')) {
+            errors.push('email');
+        }
+        if (form.details.trim().length === 0) {
+            errors.push('details');
+        }
+        return errors;
+    }
+
+    const onPress = () => {
+        const errors = checkErrors();
+        if (errors.length > 0) {
+            console.log('Empty: ')
+            //display errors
+            return;
+        }
+        console.log(JSON.stringify(form));
     }
 
     return(
@@ -56,7 +221,37 @@ const Contant = () => {
                 <text style={styles.ownersName}>HARMANDEEP</text>
             </div>
             <div style={styles.bottomContainer}>
-
+                <div style={styles.formContainer}>
+                    <div style={styles.nameContainer}>
+                        <div style={styles.nameTitleContainer}>
+                            <text style={styles.nameTitleTextContainer}>Name</text>
+                        </div>
+                        <div style={styles.nameInputContainer}>
+                            <input type="text" placeholder='Name' onChange={(d) => setForm({...form, name: d.target.value})} style={styles.nameInput} />
+                        </div>
+                    </div>
+                    <div style={styles.emailContainer}>
+                        <div style={styles.emailTitleContainer}>
+                            <text style={styles.emailTitleTextContainer}>Email</text>
+                        </div>
+                        <div style={styles.emailInputContainer}>
+                            <input type="text" placeholder='Email' onChange={(d) => setForm({...form, email: d.target.value})} style={styles.emailInput} />
+                        </div>
+                    </div>
+                    <div style={styles.detailsContainer}>
+                        <div style={styles.detailsTitleContainer}>
+                            <text style={styles.detailsTitleTextContainer}>Additional Details</text>
+                        </div>
+                        <div style={styles.detailsInputContainer}>
+                            <textarea type="text" placeholder='Details' onChange={(d) => setForm({...form, details: d.target.value})} style={styles.detailsInput} />
+                        </div>
+                    </div>
+                    <div style={{height: '20%', width: '70%', position: 'absolute', bottom: '19.6%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                        <div onMouseEnter={onMouseHoverIn} onMouseLeave={onMouseHoverOut} onClick={() => onPress()}  style={styles.submitButton}>
+                                <text style={styles.submitButtonColor}>SUBMIT</text>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
