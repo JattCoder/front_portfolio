@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { getAllMedia } from '../../Helper/socialMedia';
+import './styles.css';
 
 const SocialMediaAccounts = () => {
 
@@ -138,11 +139,13 @@ const SocialMediaAccounts = () => {
         animateProfiles();
     },[])
 
+    console.log('Social: ',socialMedia);
+
     return(
         <div style={styles.frame}>
-            <div onMouseEnter={() => mouseEntered('LinkedIn')} onMouseLeave={() => mouseLeft('LinkedIn')} style={styles.linkedInFrame}><text style={styles.linkedInText}>LinkedIn</text></div>
-            <div onMouseEnter={() => mouseEntered('Email')} onMouseLeave={() => mouseLeft('Email')} style={styles.emailFrame}><text style={styles.emailText}>{socialMedia.email}</text></div>
-            <div onMouseEnter={() => mouseEntered('GitHub')} onMouseLeave={() => mouseLeft('GitHub')} style={styles.gitHubFrame}><text style={styles.gitHubText}>GitHub</text></div>
+            <div class='links' onClick={() => window.open(socialMedia.linkedin)} onMouseEnter={() => mouseEntered('LinkedIn')} onMouseLeave={() => mouseLeft('LinkedIn')} style={styles.linkedInFrame}><text style={styles.linkedInText}>LinkedIn</text></div>
+            <div class='links' onMouseEnter={() => mouseEntered('Email')} onMouseLeave={() => mouseLeft('Email')} style={styles.emailFrame}><text style={styles.emailText}>{socialMedia.email}</text></div>
+            <div class='links' onClick={() => window.open(socialMedia.github)} onMouseEnter={() => mouseEntered('GitHub')} onMouseLeave={() => mouseLeft('GitHub')} style={styles.gitHubFrame}><text style={styles.gitHubText}>GitHub</text></div>
         </div>
     )
 }
