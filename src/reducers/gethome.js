@@ -23,7 +23,7 @@ const reducer = (state = data, action) => {
         } else if (job.id === 3) {
           job.responsibility = 'Streamlined Scrum and Kanban methodologies into development processes to standardize and accelerate operations.'
         }
-      })
+      });
 
       return {
         about: action.payload.about,

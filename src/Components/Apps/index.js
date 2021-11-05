@@ -1,16 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { getAllProjects } from '../../Helper/projects';
+import './styles.css';
 
 const Apps = () => {
-
-    /*
-        t.string "name"
-        t.string "icon"
-        t.string "shortDesc"
-        t.text "description"
-        t.string "images"
-    */
 
     const apps = [
         {
@@ -50,13 +43,15 @@ const Apps = () => {
     //const apps = useSelector(state => getAllProjects(state));
     const section = useRef('');
     const [selectedApp, setSelectedApp] = useState(-1);
+    const [typeSelected, setTypeSelected] = useState(0);
     const styles = {
         frame: {
-            height: '100%',
-            width: '100%',
+            height: '70%',
+            width: '70%',
             display: 'flex',
             background: "linear-gradient(rgba(0,0,0,0), black",
             justifyContent: 'center',
+            marginBottom: '2%',
         },
         centeredContainer: {
             height: '80%',
@@ -133,46 +128,58 @@ const Apps = () => {
             transition: "all 0.2s ease",
             WebkitTransition: "all 0.2s ease",
             MozTransition: "all 0.2s ease",
+        },
+        topSwitch: {
+            position: 'absolute',
+            top: '10%',
+            height: '9%',
+            width: '15%',
+            justifyContent: 'center',
+            alignItems: 'center',
+            display: 'flex',
+        },
+        projectText: {
+            color: typeSelected === 'Mobile App' ? 'white' : '#696969',
+            fontFamily: 'Montserrat',
+            fontWeight: 'bold',
+            width: '25%',
+            textAlign: 'center',
+            transition: "all 0.2s ease",
+            WebkitTransition: "all 0.2s ease",
+            MozTransition: "all 0.2s ease",
+        },
+        npmText: {
+            color: typeSelected === 'NPM' ? 'white' : '#696969',
+            fontFamily: 'Montserrat',
+            fontWeight: 'bold',
+            width: '25%',
+            textAlign: 'center',
+            transition: "all 0.2s ease",
+            WebkitTransition: "all 0.2s ease",
+            MozTransition: "all 0.2s ease",
         }
     }
 
-    const boxStyles = (index) => {
-        if(selectedApp !== -1){
-            if(selectedApp === index){
-                return styles.selectedApp;
-            }
-            return styles.nonSelectedApp
-        }
-        return styles.appBox
-    }
+    const appCell = () => (
+        <div>
+            <text>App</text>
+        </div>
+    )
 
     const noApps = () => (
         <div style={styles.noAppsLayout}><text style={styles.noAppsText}>Harmandeep's Applications will be available soon</text></div>
     )
 
-    const addBreaker = (app, index) => {
-        section.current = app.shortDesc
-        return (
-            <div style={styles.breakerFrame}>
-                <text style={{color: 'white', fontFamily: 'Montserrat', fontWeight: 'bold'}}>{app.shortDesc === 'NPM' ? 'Node Packages' : 'Mobile Apps'}</text>
-                {index !== 0 ? <div style={{height: '100%', width: '1%',background: "linear-gradient(white,white,white, white,rgba(255,255,255,0))", }} /> : null}
-            </div>
-        )
-    }
-
-    const renderApp = (app, index) => (
-        <>
-            {app.shortDesc !== section.current ? addBreaker(app, index) : null}
-            <div onMouseOver={() => setSelectedApp(app.id)} onMouseLeave={() => setSelectedApp(-1)} style={boxStyles(app.id)}>
-                <text>{app.name}</text>
-            </div>
-        </>
-    )
-
     return (
         <div style={styles.frame}>
             <div style={styles.centeredContainer}>
-                {noApps()}
+                {apps.filter(item => typeSelected === item.shortDesc).map(item => {
+                    return appCell(item);
+                })}
+            </div>
+            <div style={styles.topSwitch}>
+                <div class='submit-pointer' onClick={() => setTypeSelected('Mobile App')} style={{marginRight: '3%'}}><text style={styles.projectText}>Projects</text></div>
+                <div class='submit-pointer' onClick={() => setTypeSelected('NPM')} style={{marginLeft: '3%'}}><text style={styles.npmText}>NPM</text></div>
             </div>
         </div>
     )
