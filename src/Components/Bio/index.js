@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getProfileName, getProfileDesc } from '../../Helper/userInfo';
+import { responsiveText } from '../../Helper/responsive';
 
 const Bio = () => {
 
@@ -53,7 +54,7 @@ const Bio = () => {
         desc: {
             color: 'white',
             fontFamily: 'Montserrat',
-            fontSize: 20,
+            fontSize: responsiveText(12),
             opacity: descOpacity,
             transition: "all 1s ease",
             WebkitTransition: "all 1s ease",
