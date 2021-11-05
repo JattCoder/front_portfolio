@@ -43,7 +43,8 @@ const Apps = () => {
     //const apps = useSelector(state => getAllProjects(state));
     const section = useRef('');
     const [selectedApp, setSelectedApp] = useState(-1);
-    const [typeSelected, setTypeSelected] = useState(0);
+    const [typeSelected, setTypeSelected] = useState('Mobile App');
+    const [cellOpacity, setCellOpacity] = useState(0);
     const styles = {
         frame: {
             height: '70%',
@@ -52,6 +53,7 @@ const Apps = () => {
             background: "linear-gradient(rgba(0,0,0,0), black",
             justifyContent: 'center',
             marginBottom: '2%',
+            overflowX: 'scroll',
         },
         centeredContainer: {
             height: '80%',
@@ -157,14 +159,26 @@ const Apps = () => {
             transition: "all 0.2s ease",
             WebkitTransition: "all 0.2s ease",
             MozTransition: "all 0.2s ease",
+        },
+        appCellContainer: {
+            height: '60%',
+            width: '50%',
+            backgroundColor: 'red',
+            marginRight: '2%',
+            borderRadius: 10,
+            transition: "all 0.2s ease",
+            WebkitTransition: "all 0.2s ease",
+            MozTransition: "all 0.2s ease",
         }
     }
 
-    const appCell = () => (
-        <div>
-            <text>App</text>
-        </div>
-    )
+    const appCell = (item) => {
+        return (
+            <div style={styles.appCellContainer}>
+                <text style={{color: 'rgba(0,0,0,0.5)', padding: '5%', fontWeight: 'bold', fontSize: 20}}>{item.name}</text>
+            </div>
+        )
+    }
 
     const noApps = () => (
         <div style={styles.noAppsLayout}><text style={styles.noAppsText}>Harmandeep's Applications will be available soon</text></div>
