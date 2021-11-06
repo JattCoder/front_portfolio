@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { getAllProjects } from '../../Helper/projects';
+import Pic from './test.jpeg';
 import './styles.css';
 
 const Apps = () => {
@@ -42,7 +43,7 @@ const Apps = () => {
 
     //const apps = useSelector(state => getAllProjects(state));
     const section = useRef('');
-    const [selectedApp, setSelectedApp] = useState(-1);
+    const [selectedApp, setSelectedApp] = useState(0);
     const [typeSelected, setTypeSelected] = useState('Mobile App');
     const [cellOpacity, setCellOpacity] = useState(0);
     const styles = {
@@ -121,19 +122,10 @@ const Apps = () => {
             WebkitTransition: "all 0.7s ease",
             MozTransition: "all 0.7s ease",
         },
-        breakerFrame: {
-            height: '30%',
-            width: '3%',
-            marginTop: '-17%',
-            marginLeft: '3%',
-            opacity: selectedApp !== -1 ? 0 : 1,
-            transition: "all 0.2s ease",
-            WebkitTransition: "all 0.2s ease",
-            MozTransition: "all 0.2s ease",
-        },
         topSwitch: {
             position: 'absolute',
             top: '10%',
+            left: '5%',
             height: '9%',
             width: '15%',
             justifyContent: 'center',
@@ -166,16 +158,53 @@ const Apps = () => {
             backgroundColor: 'red',
             marginRight: '2%',
             borderRadius: 10,
+            opacity: 1,
+            boxShadow: "1px 3px 10px black",
+            backgroundImage: `url(${Pic})`,
             transition: "all 0.2s ease",
             WebkitTransition: "all 0.2s ease",
             MozTransition: "all 0.2s ease",
-        }
+        },
+        selectedAppCellContainer: {
+            height: window.innerHeight,
+            width: '100%',
+            marginRight: '2%',
+            borderRadius: 10,
+            opacity: 1,
+            boxShadow: "1px 3px 10px black",
+            backgroundImage: `url(${Pic})`,
+            transition: "all 1s ease",
+            WebkitTransition: "all 1s ease",
+            MozTransition: "all 1s ease",
+        },
+        nonSelectedAppCellContainer: {
+            height: '50%',
+            width: '40%',
+            backgroundColor: 'red',
+            marginRight: '2%',
+            borderRadius: 10,
+            opacity: 0.3,
+            backgroundImage: `url(${Pic})`,
+            transition: "all 1s ease",
+            WebkitTransition: "all 1s ease",
+            MozTransition: "all 1s ease",
+        },
+        dividerContainer: {
+            width: '0.1%',
+            height: '100%',
+            marginLeft: '1%',
+            marginRight: '1%',
+            background: "linear-gradient(black, white, red, red, black)"
+        },
     }
 
     const appCell = (item) => {
         return (
-            <div style={styles.appCellContainer}>
-                <text style={{color: 'rgba(0,0,0,0.5)', padding: '5%', fontWeight: 'bold', fontSize: 20}}>{item.name}</text>
+            <div onMouseEnter={() => setSelectedApp(item.id)} onMouseLeave={() => setSelectedApp(0)} style={selectedApp === 0 ? styles.appCellContainer : selectedApp === item.id ? styles.selectedAppCellContainer : styles.nonSelectedAppCellContainer}>
+                <div style={{height: '100%', width: '100%', background: 'linear-gradient(310deg, rgba(0,0,0,0), black)'}}>
+                    <div style={{ paddingLeft: '5%', paddingTop: '3%'}}><text style={{color: 'rgba(255,255,255, 0.8)', fontWeight: 'bold', fontSize: 23}}>{item.name}</text></div>
+                    <div style={{ paddingLeft: '4%', paddingTop: '5%'}}><text style={{color: 'rgba(255,255,255, 0.6)'}}>{item.description}</text></div>
+                </div>
             </div>
         )
     }
@@ -187,14 +216,17 @@ const Apps = () => {
     return (
         <div style={styles.frame}>
             <div style={styles.centeredContainer}>
-                {apps.filter(item => typeSelected === item.shortDesc).map(item => {
+                {apps.length > 0 ? apps.filter(item => typeSelected === item.shortDesc).map(item => {
                     return appCell(item);
-                })}
+                }) : noApps()}
             </div>
-            <div style={styles.topSwitch}>
-                <div class='submit-pointer' onClick={() => setTypeSelected('Mobile App')} style={{marginRight: '3%'}}><text style={styles.projectText}>Projects</text></div>
-                <div class='submit-pointer' onClick={() => setTypeSelected('NPM')} style={{marginLeft: '3%'}}><text style={styles.npmText}>NPM</text></div>
-            </div>
+            {apps.length > 0 ? (
+                <div style={styles.topSwitch}>
+                    <div class='submit-pointer' onClick={() => setTypeSelected('Mobile App')} style={{marginRight: '3%'}}><text style={styles.projectText}>Projects</text></div>
+                    <div style={styles.dividerContainer} />
+                    <div class='submit-pointer' onClick={() => setTypeSelected('NPM')} style={{marginLeft: '3%'}}><text style={styles.npmText}>NPM</text></div>
+                </div>
+            ) : null}
         </div>
     )
 }
