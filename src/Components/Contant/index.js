@@ -179,7 +179,7 @@ const Contant = () => {
             color: submitTextColor,
             fontFamily: 'Montserrat',
             textAlign: 'center',
-            fontSize: 12,
+            fontSize: window.innerHeight*.02,
             transition: "all 0.7s ease",
             WebkitTransition: "all 0.7s ease",
             MozTransition: "all 0.7s ease",
