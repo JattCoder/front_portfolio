@@ -53,7 +53,7 @@ const BottomNavBar = (props) => {
         preSelectedItemText: {
             fontFamily: 'Montserrat',
             color: 'white',
-            fontSize: text(2),
+            fontSize: text(2.7),
             fontWeight: 'bold',
             transition: "all 0.7s ease",
             WebkitTransition: "all 0.7s ease",
