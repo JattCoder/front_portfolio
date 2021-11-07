@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getProfileName, getProfileDesc } from '../../Helper/userInfo';
+import { text, height, width } from '../../Helper/responsive';
 
 const Bio = () => {
 
@@ -11,6 +12,7 @@ const Bio = () => {
     const [nameSize, setNameSize] = useState(0);
     const [descOpacity, setDescOpacity] = useState(0);
     const [frameOpacity, setFrameOpacity] = useState(0);
+    const [newWindowSize, setWindowSize] = useState({width: 0, height: 0});
     
     const styles = {
         frame: {
@@ -53,7 +55,7 @@ const Bio = () => {
         desc: {
             color: 'white',
             fontFamily: 'Montserrat',
-            fontSize: 20,
+            fontSize: text(2.8),
             opacity: descOpacity,
             transition: "all 1s ease",
             WebkitTransition: "all 1s ease",
@@ -69,23 +71,23 @@ const Bio = () => {
         setTimeout(() => {
             displayDesc();
         },1500);
-        setNameSize(50);
-        setImSize(45);
+        setNameSize(text(5.4));
+        setImSize(text(5.1));
     }
 
     const displayIm = () => {
         setTimeout(() => {
             displayName();
         },1500);
-        setImSize(60);
-        setHiSize(45);
+        setImSize(text(7));
+        setHiSize(text(5.1));
     }
 
     const displayHi = () => {
         setTimeout(() => {
             displayIm();
         },1500);
-        setHiSize(60);
+        setHiSize(text(7));
     }
 
     const animateBio = () => {
@@ -93,18 +95,23 @@ const Bio = () => {
         displayHi();
     }
 
+    const windowResize = () => {
+        setWindowSize({width: window.innerWidth, height: window.innerHeight});
+    }
+
     useEffect(() => {
+        window.addEventListener('resize' , windowResize)
         animateBio();
     },[])
 
     return(
         <div style={styles.frame}>
-            <div style={{position: 'absolute', left: '15%', top: '25%'}}>
+            <div style={{position: 'absolute', left: width(15), top: height(25)}}>
                 <text style={styles.hello}>Hi</text>
                 <text style={styles.i}>, I'm</text>
             </div>
-            <div style={{position: 'absolute', left: '15%', top: '35%'}}><text style={styles.name}>{name}</text></div>
-            <div style={{position: 'absolute', left: '15%', top: '55%', width: '70%'}}><text style={styles.desc}>{desc}</text></div>
+            <div style={{position: 'absolute', left: width(15), top: height(32)}}><text style={styles.name}>{name}</text></div>
+            <div style={{position: 'absolute', left: width(15), top: height(50), width: width(70)}}><text style={styles.desc}>{desc}</text></div>
         </div>
     )
 }

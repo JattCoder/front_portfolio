@@ -3,8 +3,8 @@ export const GET_HOME = 'GET_HOME';
 export const gethome = () => {
     return async (dispatch) =>{
         try {
-            return await fetch('https://harmandeep-mand-portfolio.herokuapp.com/'
-            ).then(
+            return await fetch(process.env.REACT_APP_API)
+            .then(
                 response => response.json(),
                 error => console.log(error),
             ).then((json)=> {
