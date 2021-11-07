@@ -1,8 +1,15 @@
 import React from 'react';
 
-const responsiveText = (num) => {
-    const { width, height } = window.screen;
-    return (width/height)*num;
+const text = (percentage) => {
+    return window.innerHeight*(percentage/100);
 }
 
-export { responsiveText }
+const height = (percentage) => {
+    return window.innerHeight*(percentage/100);
+}
+
+const width = (percentage) => {
+    return window.innerWidth*(percentage/100);
+}
+
+export { text, height, width }

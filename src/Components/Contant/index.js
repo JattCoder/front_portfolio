@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { submitReview } from '../../actions/submitReview';
+import { text } from '../../Helper/responsive';
 import './styles.css';
 
 const Contant = () => {
@@ -37,7 +38,7 @@ const Contant = () => {
             color: 'red',
             fontFamily: 'Montserrat',
             fontWeight: 'bold',
-            fontSize: 24,
+            fontSize: text(2.8),
         },
         dividerContainer: {
             width: '0.1%',
@@ -50,7 +51,7 @@ const Contant = () => {
             color: 'white',
             fontFamily: 'Montserrat',
             fontWeight: 'bold',
-            fontSize: 35,
+            fontSize: text(4.2),
         },
         bottomContainer: {
             width: '100%',
@@ -73,7 +74,7 @@ const Contant = () => {
             color: 'white',
             fontFamily: 'montserrat',
             fontWeight: 'bold',
-            fontSize: 22
+            fontSize: text(2.6)
         },
         nameInputContainer: {
             width: '100%',
@@ -91,7 +92,7 @@ const Contant = () => {
             borderColor: errors.includes('name') ? 'red' : '#878787',
             paddingLeft: '4%',
             paddingRight: '4%',
-            fontSize: 17,
+            fontSize: text(2),
             outline: 'none'
         },
         emailContainer: {
@@ -105,7 +106,7 @@ const Contant = () => {
             color: 'white',
             fontFamily: 'montserrat',
             fontWeight: 'bold',
-            fontSize: 22
+            fontSize: text(2.6)
         },
         emailInputContainer: {
             width: '100%',
@@ -123,7 +124,7 @@ const Contant = () => {
             borderColor: errors.includes('email') ? 'red' : '#878787',
             paddingLeft: '4%',
             paddingRight: '4%',
-            fontSize: 17,
+            fontSize: text(2),
             outline: 'none'
         },
         detailsContainer: {
@@ -140,7 +141,7 @@ const Contant = () => {
             color: 'white',
             fontFamily: 'montserrat',
             fontWeight: 'bold',
-            fontSize: 22
+            fontSize: text(2.6)
         },
         detailsInputContainer: {
             width: '90%',
@@ -158,7 +159,7 @@ const Contant = () => {
             borderWidth: 1,
             borderColor: errors.includes('details') ? 'red' : '#878787',
             padding: '4%',
-            fontSize: 17,
+            fontSize: text(2),
             outline: 'none',
             resize: 'none',
         },
@@ -179,7 +180,7 @@ const Contant = () => {
             color: submitTextColor,
             fontFamily: 'Montserrat',
             textAlign: 'center',
-            fontSize: window.innerHeight*.02,
+            fontSize: text(1.8),
             transition: "all 0.7s ease",
             WebkitTransition: "all 0.7s ease",
             MozTransition: "all 0.7s ease",

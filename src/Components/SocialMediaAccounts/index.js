@@ -1,31 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { getAllMedia } from '../../Helper/socialMedia';
+import { text, width, height } from '../../Helper/responsive';
 import './styles.css';
 
 const SocialMediaAccounts = () => {
 
     const socialMedia = useSelector(state => getAllMedia(state));
-    const [animateEmail, setAnimateEmail] = useState('-50%');
-    const [animateGutHub, setAnimateGitHub] = useState('-10.1%');
-    const [animateLinkedIn, setAnimatedLinkedIn] = useState('-15%');
+    const [animateEmail, setAnimateEmail] = useState(height(-10.5));
+    const [animateGutHub, setAnimateGitHub] = useState(height(-10));
+    const [animateLinkedIn, setAnimatedLinkedIn] = useState(height(-10.5));
     const [handleEmailStyles, setHandleEmailStyles] = useState({
         weight: 'normal',
-        size: 17,
+        size: text(2.4),
     });
     const [handleLinkedInStyles, setHandleLinkedInStyles] = useState({
         weight: 'normal',
-        size: 17,
+        size: text(2.4),
     });
     const [handleGitHubStyles, setHandleGitHubStyles] = useState({
         weight: 'normal',
-        size: 17,
+        size: text(2.4),
     });
 
     const styles = {
         frame: {
-            width: '100%',
-            height: '50%',
+            width: width(100),
+            height: height(50),
             position: 'absolute',
             bottom: 0,
             transition: "all 1s ease",
@@ -35,7 +36,7 @@ const SocialMediaAccounts = () => {
         linkedInFrame: {
             transform: 'rotate(270deg)',
             position: 'absolute',
-            right: '-1.5%',
+            right: width(-1.5),
             bottom: animateLinkedIn,
             transition: "all 1s ease",
             WebkitTransition: "all 1s ease",
@@ -73,7 +74,7 @@ const SocialMediaAccounts = () => {
         emailFrame: {
             transform: 'rotate(90deg)',
             position: 'absolute',
-            left: '-9.5%',
+            left: width(-9.6),
             bottom: animateEmail,
             transition: "all 0.7s ease",
             WebkitTransition: "all 0.7s ease",
@@ -95,17 +96,17 @@ const SocialMediaAccounts = () => {
         if (profile === 'LinkedIn'){
             setHandleLinkedInStyles({
                 weight: 'bold',
-                size: 18,
+                size: text(3.2),
             });
         } else if (profile === 'Email') {
             setHandleEmailStyles({
                 weight: 'bold',
-                size: 18,
+                size: text(3.2),
             });
         } else {
             setHandleGitHubStyles({
                 weight: 'bold',
-                size: 18,
+                size: text(3.2),
             })
         }
     }
@@ -114,32 +115,35 @@ const SocialMediaAccounts = () => {
         if (profile === 'LinkedIn'){
             setHandleLinkedInStyles({
                 weight: 'normal',
-                size: 17,
+                size: text(2.4),
             });
         } else if (profile === 'Email') {
             setHandleEmailStyles({
                 weight: 'normal',
-                size: 17,
+                size: text(2.4),
             });
         } else {
             setHandleGitHubStyles({
                 weight: 'normal',
-                size: 17,
+                size: text(2.4),
             })
         }
     }
 
     const animateProfiles = () => {
-        setAnimateEmail('50%');
-        setAnimateGitHub('-1.1%');
-        setAnimatedLinkedIn('15%');
+        setAnimateEmail(height(24));
+        setAnimateGitHub(width(-1.1));
+        setAnimatedLinkedIn(height(8));
+    }
+
+    const updateSizes = () => {
+        console.log('Screen Resized: ')
     }
 
     useEffect(() => {
         animateProfiles();
+        window.addEventListener('resize', updateSizes)
     },[])
-
-    console.log('Social: ',socialMedia);
 
     return(
         <div style={styles.frame}>

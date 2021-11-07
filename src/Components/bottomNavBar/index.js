@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { text } from '../../Helper/responsive';
 import './styles.css';
 
 const BottomNavBar = (props) => {
@@ -35,7 +36,7 @@ const BottomNavBar = (props) => {
         selectedItemText: {
             fontFamily: 'Montserrat',
             color: 'red',
-            fontSize: 20,
+            fontSize: text(2.5),
             fontWeight: 'bold',
             transition: "all 0.7s ease",
             WebkitTransition: "all 0.7s ease",
@@ -52,7 +53,7 @@ const BottomNavBar = (props) => {
         preSelectedItemText: {
             fontFamily: 'Montserrat',
             color: 'white',
-            fontSize: 20,
+            fontSize: text(2),
             fontWeight: 'bold',
             transition: "all 0.7s ease",
             WebkitTransition: "all 0.7s ease",
@@ -68,6 +69,7 @@ const BottomNavBar = (props) => {
             MozTransition: "all 0.7s ease",
         },
         nonSelectedItemText: {
+            text: text(1.8),
             fontFamily: 'Montserrat',
             color: 'rgba(211,211,211, 1)',
             transition: "all 0.7s ease",
