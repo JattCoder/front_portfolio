@@ -7,38 +7,38 @@ import './styles.css';
 const Apps = () => {
 
     const apps = [
-        {
-            id: 1,
-            name: 'App1',
-            icon: '',
-            shortDesc: 'Mobile App',
-            description: 'This is an mobile app',
-            images: '',
-        },
-        {
-            id: 2,
-            name: 'App2',
-            icon: '',
-            shortDesc: 'Mobile App',
-            description: 'This is an mobile app',
-            images: '',
-        },
-        {
-            id: 3,
-            name: 'Npm1',
-            icon: '',
-            shortDesc: 'NPM',
-            description: 'This is an npm1 component',
-            images: '',
-        },
-        {
-            id: 4,
-            name: 'Npm2',
-            icon: '',
-            shortDesc: 'NPM',
-            description: 'This is an npm2 component',
-            images: '',
-        },
+        // {
+        //     id: 1,
+        //     name: 'App1',
+        //     icon: '',
+        //     shortDesc: 'Mobile App',
+        //     description: 'This is an mobile app',
+        //     images: '',
+        // },
+        // {
+        //     id: 2,
+        //     name: 'App2',
+        //     icon: '',
+        //     shortDesc: 'Mobile App',
+        //     description: 'This is an mobile app',
+        //     images: '',
+        // },
+        // {
+        //     id: 3,
+        //     name: 'Npm1',
+        //     icon: '',
+        //     shortDesc: 'NPM',
+        //     description: 'This is an npm1 component',
+        //     images: '',
+        // },
+        // {
+        //     id: 4,
+        //     name: 'Npm2',
+        //     icon: '',
+        //     shortDesc: 'NPM',
+        //     description: 'This is an npm2 component',
+        //     images: '',
+        // },
     ];
 
     //const apps = useSelector(state => getAllProjects(state));
