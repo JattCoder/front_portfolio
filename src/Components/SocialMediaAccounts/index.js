@@ -4,7 +4,7 @@ import { getAllMedia } from '../../Helper/socialMedia';
 import { text, width, height } from '../../Helper/responsive';
 import './styles.css';
 
-const SocialMediaAccounts = () => {
+const SocialMediaAccounts = (props) => {
 
     const [emailRef, setEmailRef] = useState(null);
     const [gitHubRef, setGithubRef] = useState(null);
@@ -40,7 +40,7 @@ const SocialMediaAccounts = () => {
         linkedInFrame: {
             transform: 'rotate(270deg)',
             position: 'absolute',
-            right: linkedInRef ? -linkedInRef.offsetWidth/2+14 : -20,
+            right: props.hide ? -200 : linkedInRef ? -linkedInRef.offsetWidth/2+14 : -20,
             bottom: animateLinkedIn,
             transition: "all 1s ease",
             WebkitTransition: "all 1s ease",
@@ -59,7 +59,7 @@ const SocialMediaAccounts = () => {
         gitHubFrame: {
             transform: 'rotate(270deg)',
             position: 'absolute',
-            right: animateGutHub,
+            right: props.hide ? -200 : animateGutHub,
             bottom: '45%',
             transition: "all 0.7s ease",
             WebkitTransition: "all 0.7s ease",
@@ -78,7 +78,7 @@ const SocialMediaAccounts = () => {
         emailFrame: {
             transform: 'rotate(90deg)',
             position: 'absolute',
-            left: emailRef ? -emailRef.offsetWidth/2+15 : -125,
+            left: props.hide ? -200 : emailRef ? -emailRef.offsetWidth/2+15 : -125,
             bottom: animateEmail,
             transition: "all 0.7s ease",
             WebkitTransition: "all 0.7s ease",

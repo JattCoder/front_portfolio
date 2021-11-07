@@ -4,7 +4,7 @@ import SocialMediaAccounts from '../../Components/SocialMediaAccounts';
 import BottomNavBar from '../../Components/bottomNavBar';
 import Slides from '../../Components/Slides';
 
-const Navigation = () => {
+const Navigation = (props) => {
 
   const [selection, setSelection] = useState(2);
   const styles = {
@@ -21,7 +21,7 @@ const Navigation = () => {
 
     return(
       <div style={styles.body}>
-        <SocialMediaAccounts />
+        <SocialMediaAccounts hide={props.screenType === 'Tablet/Mobile'} />
         <Slides selection={selection} />
         <BottomNavBar selection={selection} newSelection={setSelection}/>
       </div>
