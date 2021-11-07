@@ -13,7 +13,7 @@ const SocialMediaAccounts = () => {
     const [animateEmail, setAnimateEmail] = useState(height(-10.5));
     const [animateGutHub, setAnimateGitHub] = useState(height(-10));
     const [animateLinkedIn, setAnimatedLinkedIn] = useState(height(-10.5));
-    const [emailLeft, setEmailLeft] = useState(width(-8.8));
+    const [newScreenSize, setNewScreenSize] = useState({height: 0, width: 0});
     const [handleEmailStyles, setHandleEmailStyles] = useState({
         weight: 'normal',
         size: text(2.4),
@@ -136,12 +136,12 @@ const SocialMediaAccounts = () => {
 
     const animateProfiles = () => {
         setAnimateEmail(height(24));
-        setAnimateGitHub(emailRef ? -emailRef.offsetWidth/2+15 : -15);
+        setAnimateGitHub(emailRef ? -gitHubRef.offsetWidth/2+15 : -15);
         setAnimatedLinkedIn(height(8));
     }
 
     const updateSizes = () => {
-        setEmailLeft(width(-8.8));
+        setNewScreenSize({width: window.innerWidth, height: window.innerHeight})
     }
 
     useEffect(() => {

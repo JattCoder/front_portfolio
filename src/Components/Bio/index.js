@@ -12,6 +12,7 @@ const Bio = () => {
     const [nameSize, setNameSize] = useState(0);
     const [descOpacity, setDescOpacity] = useState(0);
     const [frameOpacity, setFrameOpacity] = useState(0);
+    const [newWindowSize, setWindowSize] = useState({width: 0, height: 0});
     
     const styles = {
         frame: {
@@ -94,7 +95,12 @@ const Bio = () => {
         displayHi();
     }
 
+    const windowResize = () => {
+        setWindowSize({width: window.innerWidth, height: window.innerHeight});
+    }
+
     useEffect(() => {
+        window.addEventListener('resize' , windowResize)
         animateBio();
     },[])
 
