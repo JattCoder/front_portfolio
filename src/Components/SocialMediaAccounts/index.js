@@ -74,7 +74,7 @@ const SocialMediaAccounts = () => {
         emailFrame: {
             transform: 'rotate(90deg)',
             position: 'absolute',
-            left: width(-9.6),
+            left: width(-7.6),
             bottom: animateEmail,
             transition: "all 0.7s ease",
             WebkitTransition: "all 0.7s ease",
