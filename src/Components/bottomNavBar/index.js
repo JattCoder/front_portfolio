@@ -99,7 +99,7 @@ const BottomNavBar = (props) => {
     }
 
     const render = (item, index) => (
-        <div class='bottom_selection' onClick={() => props.newSelection(index)} onMouseEnter={()=>setPreSelected(index)} onMouseLeave={()=>setPreSelected(-1)} style={setItemStyle(index)}>
+        <div key={index} className='bottom_selection' onClick={() => props.newSelection(index)} onMouseEnter={()=>setPreSelected(index)} onMouseLeave={()=>setPreSelected(-1)} style={setItemStyle(index)}>
             <text style={setItemTextStyle(index)}>{item}</text>
         </div>
     )

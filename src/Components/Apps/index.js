@@ -222,9 +222,9 @@ const Apps = () => {
             </div>
             {apps.length > 0 ? (
                 <div style={styles.topSwitch}>
-                    <div class='submit-pointer' onClick={() => setTypeSelected('Mobile App')} style={{marginRight: '3%'}}><text style={styles.projectText}>Projects</text></div>
+                    <div className='submit-pointer' onClick={() => setTypeSelected('Mobile App')} style={{marginRight: '3%'}}><text style={styles.projectText}>Projects</text></div>
                     <div style={styles.dividerContainer} />
-                    <div class='submit-pointer' onClick={() => setTypeSelected('NPM')} style={{marginLeft: '3%'}}><text style={styles.npmText}>NPM</text></div>
+                    <div className='submit-pointer' onClick={() => setTypeSelected('NPM')} style={{marginLeft: '3%'}}><text style={styles.npmText}>NPM</text></div>
                 </div>
             ) : null}
         </div>

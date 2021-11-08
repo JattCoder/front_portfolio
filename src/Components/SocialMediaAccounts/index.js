@@ -151,9 +151,9 @@ const SocialMediaAccounts = (props) => {
 
     return(
         <div style={styles.frame}>
-            <div class='links' ref={(reff => setLinkedInRef(reff))} onClick={() => window.open(socialMedia.linkedin)} onMouseEnter={() => mouseEntered('LinkedIn')} onMouseLeave={() => mouseLeft('LinkedIn')} style={styles.linkedInFrame}><text style={styles.linkedInText}>LinkedIn</text></div>
-            <div class='links' ref={(reff => setEmailRef(reff))} onMouseEnter={() => mouseEntered('Email')} onMouseLeave={() => mouseLeft('Email')} style={styles.emailFrame}><text style={styles.emailText}>{socialMedia.email}</text></div>
-            <div class='links' ref={(reff => setGithubRef(reff))} onClick={() => window.open(socialMedia.github)} onMouseEnter={() => mouseEntered('GitHub')} onMouseLeave={() => mouseLeft('GitHub')} style={styles.gitHubFrame}><text style={styles.gitHubText}>GitHub</text></div>
+            <div className='links' ref={(reff => setLinkedInRef(reff))} onClick={() => window.open(socialMedia.linkedin)} onMouseEnter={() => mouseEntered('LinkedIn')} onMouseLeave={() => mouseLeft('LinkedIn')} style={styles.linkedInFrame}><text style={styles.linkedInText}>LinkedIn</text></div>
+            <div className='links' ref={(reff => setEmailRef(reff))} onMouseEnter={() => mouseEntered('Email')} onMouseLeave={() => mouseLeft('Email')} style={styles.emailFrame}><text style={styles.emailText}>{socialMedia.email}</text></div>
+            <div className='links' ref={(reff => setGithubRef(reff))} onClick={() => window.open(socialMedia.github)} onMouseEnter={() => mouseEntered('GitHub')} onMouseLeave={() => mouseLeft('GitHub')} style={styles.gitHubFrame}><text style={styles.gitHubText}>GitHub</text></div>
         </div>
     )
 }

@@ -295,7 +295,7 @@ const Contant = () => {
                         </div>
                     </div>
                     <div style={{height: '20%', width: '70%', position: 'absolute', bottom: '19.6%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                        <div class='submit-pointer' onMouseEnter={onMouseHoverIn} onMouseLeave={onMouseHoverOut} onClick={() => onPress()} disabled = {loading ? "disabled" : ""} style={styles.submitButton}>
+                        <div className='submit-pointer' onMouseEnter={onMouseHoverIn} onMouseLeave={onMouseHoverOut} onClick={() => onPress()} disabled = {loading ? "disabled" : ""} style={styles.submitButton}>
                             <text style={styles.submitButtonColor}>{submitButtonText}</text>
                         </div>
                     </div>

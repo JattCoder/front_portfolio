@@ -119,14 +119,14 @@ const LoadingGif = (props) => {
     const success = () => {
         setTimeout(() => {
             hideIntro();
+            setTimeout(() => {
+                props.isLoaded(true);
+            },1000)
         },1000)
         setWColor('red');
     }
 
     const hideIntro = () => {
-        setTimeout(() => {
-            props.isLoaded(true);
-        },1000)
         setW(2);
         setE(2);
         setL(2);
@@ -137,6 +137,7 @@ const LoadingGif = (props) => {
     }
 
     const hideWelcome = (resp) => {
+        console.log('resp: ',resp);
         setTimeout(() => {
             if (resp){
                 success();
@@ -148,7 +149,6 @@ const LoadingGif = (props) => {
     }
 
     const fetchData = async () => {
-        // start W Color
         try{
             await dispatch(gethome());
             hideWelcome(true);
