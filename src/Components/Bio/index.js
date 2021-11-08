@@ -100,7 +100,7 @@ const Bio = () => {
     }
 
     useEffect(() => {
-        //window.addEventListener('resize' , windowResize)
+        window.addEventListener('resize' , windowResize)
         animateBio();
     },[])
 
