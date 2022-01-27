@@ -17,6 +17,9 @@ const LoadingGif = (props) => {
     const [tryAgainTextColor, setTryAgainTextColor] = useState('white');
     const [tryAgainBackgroundColor, setTryAgainBackgroundColor] = useState('black');
     const [tryAgainOpacity, setTryAgainOpacity] = useState(0);
+    const [loaderOpacity, setLoaderOpacity] = useState(0);
+    const [loaderWidth, setLoaderWidth] = useState('0%');
+    const [loaderSpeed, setLoaderSpeed] = useState('4s')
     const dispatch = useDispatch();
 
     const styles = {
@@ -113,6 +116,19 @@ const LoadingGif = (props) => {
             transition: "all 0.7s ease",
             WebkitTransition: "all 0.7s ease",
             MozTransition: "all 0.7s ease",
+        },
+        loaderBar: {
+            backgroundColor: 'red',
+            height: 5,
+            width: loaderWidth,
+            boxShadow: "5px 3px 20px red",
+            borderRadius: 10,
+            position: 'absolute',
+            left: 0, 
+            opacity: loaderOpacity,
+            transition: `all ${loaderSpeed} ease`,
+            WebkitTransition: `all ${loaderSpeed} ease`,
+            MozTransition: `all ${loaderSpeed} ease`,
         }
     }
 
@@ -123,10 +139,11 @@ const LoadingGif = (props) => {
                 props.isLoaded(true);
             },1000)
         },1000)
-        setWColor('red');
+        setLoaderSpeed('0.3s');
     }
 
     const hideIntro = () => {
+        setLoaderOpacity(0);
         setW(2);
         setE(2);
         setL(2);
@@ -137,7 +154,6 @@ const LoadingGif = (props) => {
     }
 
     const hideWelcome = (resp) => {
-        console.log('resp: ',resp);
         setTimeout(() => {
             if (resp){
                 success();
@@ -149,9 +165,13 @@ const LoadingGif = (props) => {
     }
 
     const fetchData = async () => {
+        setLoaderWidth('94%');
         try{
             await dispatch(gethome());
-            hideWelcome(true);
+            setTimeout(() => {
+                hideWelcome(true);
+            },1000)
+            setLoaderWidth('102%');
         } catch (err) {
             hideWelcome(false);
         }
@@ -182,6 +202,7 @@ const LoadingGif = (props) => {
             },200)
             setW(1);
         }, 500)
+        setLoaderOpacity(1);
     }
 
     const onMouseHoverIn = () => {
@@ -218,6 +239,7 @@ const LoadingGif = (props) => {
                 <text style={styles.text5}>O</text>
                 <text style={styles.text6}>M</text>
                 <text style={styles.text7}>E</text>
+                <div style={styles.loaderBar}/>
             </div>
         </>
     )

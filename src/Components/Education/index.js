@@ -25,6 +25,7 @@ const Education = () => {
         },
         schoolListContainer: {
             height: '100%',
+            overflowY: 'scroll',
         },
         educationCell: {
             marginBottom: '2%'
@@ -72,7 +73,7 @@ const Education = () => {
 
     const renderSchool = (school, index) => {
         return (
-            <li key={school.id} style={{height: '30%', width: '100%', overflowY: 'scroll',}}>
+            <li key={school.id} style={{height: '30%', width: '100%'}}>
                 <div style={styles.educationCell}>
                     <div style={styles.schoolTopContainer}>
                         <img style={styles.schoolImage} src={assignImage(school.icon)} alt={'School'} />

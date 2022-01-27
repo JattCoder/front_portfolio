@@ -26,6 +26,7 @@ const Work = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            overflow: 'scroll'
         },
         noAppsText: {
             color: 'white',
